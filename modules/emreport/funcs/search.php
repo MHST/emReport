@@ -9,10 +9,7 @@
 
 if ( ! defined( 'NV_IS_MOD_EMREPORT' ) ) die( 'Stop!!!' );
 
-$page_title = $module_info['custom_title'];
-$key_words = $module_info['keywords'];
-
-$contents = 'Xin chao';
+$contents = 'Test search';
 
   // Get the search variable from URL
 /*

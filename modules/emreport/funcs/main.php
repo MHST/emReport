@@ -17,7 +17,7 @@ if( ! defined('NV_IS_USER') ){
 	$contents .= $lang_module['loginalert'];
 }
 else{
-	$action = NV_BASE_SITEURL . "search.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&op=search";
+	$action = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=search";
 	$xtpl = new XTemplate ( "main.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
 	$xtpl->assign('ACTION', $action);
 	$xtpl->parse('main');

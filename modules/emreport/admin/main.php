@@ -10,7 +10,6 @@
 if ( ! defined( 'NV_IS_EMREPORT_ADMIN' ) ) die( 'Stop!!!' );
 $page_title = "Trang chính";
 
-$contents = "Xin chào các bạn";
 
 include (NV_ROOTDIR . "/includes/header.php");
 echo nv_admin_theme($contents);

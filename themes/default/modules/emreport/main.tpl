@@ -1,7 +1,7 @@
 <!-- BEGIN: main -->
 	<br/>
 	<div class="container" align="center">
-        <form action="{ACTION}" method="get">
+        <form action={ACTION} method="post">
         	<label for="search">Tra cứu bệnh án</label>
             <input id="search" name="q" type="text" placeholder="Nhập số CMND">
             <input type="submit" value="Submit">
