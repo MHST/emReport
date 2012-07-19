@@ -9,7 +9,6 @@
 
 if ( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' ) or ! defined( 'NV_IS_MODADMIN' ) ) die( 'Stop!!!' ); 
 
-$allow_func = array('main'); 
+$allow_func = array('main', 'view', 'create', 'search');
 define( 'NV_IS_EMREPORT_ADMIN', true );
 
-?>
