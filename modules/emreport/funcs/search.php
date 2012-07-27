@@ -11,8 +11,7 @@ if ( ! defined( 'NV_IS_MOD_EMREPORT' ) ) die( 'Stop!!!' );
 $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
 
-$contents = "<br/>";
-  // Get the search variable from URL
+// Get the search variable from URL
 
 $var = filter_text_input('q', 'post', '');
 

@@ -8,21 +8,20 @@
  */
 
 if ( ! defined( 'NV_IS_MOD_EMREPORT' ) ) die( 'Stop!!!' );
+$page_title = $module_info['custom_title'];
+$key_words = $module_info['keywords'];
+$contents = "Đây là create func";
 
+//if( ! defined('NV_IS_USER') ){
+	//$contents .= $lang_module['loginalert'];
+//}
+//else{
+	//$xtpl = new XTemplate ("create.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
+	//$xtpl->parse('main');
+	//$contents .= $xtpl->text('main');
+//}
 
-
-$contents = "<br/>";
-
-if( ! defined('NV_IS_USER') ){
-	$contents .= $lang_module['loginalert'];
-}
-else{
-	$xtpl = new XTemplate ( "search.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
-	$xtpl->parse('main');
-	$contents = $xtpl->text('main');
-}
-
-	// DOM PHP XML
+	/*/ DOM PHP XML
 	  
 	$doc = new DOMDocument();
 	$doc->formatOutput = true;
@@ -42,8 +41,7 @@ else{
 	$root->appendChild( $benhnhan );
 	
 	$doc->save($cmnd);  
-
-
+*/
 
 include ( NV_ROOTDIR . "/includes/header.php" );
 echo nv_site_theme( $contents );

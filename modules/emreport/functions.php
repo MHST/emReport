@@ -9,8 +9,6 @@
 
 if (!defined('NV_SYSTEM')) die('Stop!!!');
 
-$allow_func = array('main', 'view', 'create', 'search');
- 
-define('NV_IS_MOD_EMREPORT', true); 
+define('NV_IS_MOD_EMREPORT', true);
 
 ?>
