@@ -20,5 +20,6 @@ $lang_module['detail'] = "Xem chi tiết";
 $lang_module['search'] = "Tìm kiếm";
 $lang_module['loginalert'] = "Đăng nhập để bắt đầu sử dụng !";
 $lang_module['search_lable'] = "Tìm kiếm bệnh nhân";
+$lang_module['create_success'] = "Tạo hồ sơ bệnh án thành công !"
 
 ?>

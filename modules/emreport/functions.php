@@ -9,6 +9,8 @@
 
 if (!defined('NV_SYSTEM')) die('Stop!!!');
 
+$allow_func = array('main', 'search', 'view', 'crebook', 'examine'); 
+
 define('NV_IS_MOD_EMREPORT', true);
 
 ?>

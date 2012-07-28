@@ -11,7 +11,7 @@ if ( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' )) die( 'Stop!!!' );
  
 $module_version = array( 
 	"name" => "emReport", // Tieu de module
-	"modfuncs" => "main,search,create,view",
+	"modfuncs" => "main,search,crebook,view,examine",
 	"is_sysmod" => 0,
 	"virtual" => 1,
 	"version" => "3.4.01",
