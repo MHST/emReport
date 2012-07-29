@@ -20,6 +20,8 @@ $lang_module['detail'] = "Xem chi tiết";
 $lang_module['search'] = "Tìm kiếm";
 $lang_module['loginalert'] = "Đăng nhập để bắt đầu sử dụng !";
 $lang_module['search_lable'] = "Tìm kiếm bệnh nhân";
-$lang_module['create_success'] = "Tạo hồ sơ bệnh án thành công !"
-
+$lang_module['create_success'] = "Tạo hồ sơ bệnh án thành công !";
+$lang_module['search_null'] = "Hãy nhập số CMND của bệnh nhân cần tìm !!!";
+$lang_module['multi_error'] = "Bạn không được phép tạo nhiều sổ y bạ cá nhân !"
+;
 ?>

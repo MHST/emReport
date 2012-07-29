@@ -17,6 +17,6 @@
 			 <td>Người khám</td>
 		 </tr>
 		 </table>
-		 <input type="button" value="Khám mới" onclick="window.location.href='{LINK}'">
+		 {ADMIN}
 	</div>
 <!-- END: main -->

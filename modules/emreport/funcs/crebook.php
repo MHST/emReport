@@ -8,9 +8,11 @@
  */
 
 if ( ! defined( 'NV_IS_MOD_EMREPORT' ) ) die( 'Stop!!!' );
-$page_title = $module_info['custom_title'];
-$key_words = $module_info['keywords'];
-$contents = "<br/>";
+
+$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "` WHERE `ten` = '" . $user_info['username'] . "'";
+$result = $db->sql_query ($query);
+$numrows = $db->sql_numrows($result);
+if ($numrows != 0) die($lang_module['multi_error']);
 
 $submit = $nv_Request->get_int('submit','post',0);
 
@@ -19,13 +21,13 @@ if( $submit == 0 ){
 	$xtpl->parse('main');
 	$contents .= $xtpl->text('main');
 }else{
-	$cmnd = filter_text_input('cmnd', 'post', '');  
-	if ($cmnd == '' || !nv_num_check($cmnd)){
+	$cmnd = filter_text_input('cmnd', 'post', '');
+	if (strcmp($cmnd, '') == 0 or !is_numeric($cmnd)){
 		$contents = '<p>Số CMND chưa được nhập đúng. Quay lại để thực hiện !</p>';
 		$contents .= '<input type="button" value="Quay lại" onclick="window.history.back()" />';
 	}else{
 		// Thêm vào CSDL
-		$query = "INSERT INTO " . NV_PREFIXLANG . "_" . $module_data . "_emreport (cmnd, ten) VALUE (". $cmnd . "," . $user_info['username'] . ")";
+		$query = "INSERT INTO `" . NV_PREFIXLANG . "_" . $module_data . "` (`cmnd`, `ten`) VALUES ('". $cmnd . "', '" . $user_info['username'] . "')";
 		$db->sql_query($query);
 		// DOM PHP XML
 		$doc = new DOMDocument('1.0', 'UTF-8');

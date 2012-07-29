@@ -13,4 +13,8 @@ $allow_func = array('main', 'search', 'view', 'crebook', 'examine');
 
 define('NV_IS_MOD_EMREPORT', true);
 
+$get_array = explode('-',isset($array_op[0]) ? $array_op[0] : '');
+$Lfunc = (isset($get_array[0])) ? $get_array[0] : 0;
+$Lname = (isset($get_array[1])) ? ($get_array[1]) : 0;
+
 ?>
