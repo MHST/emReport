@@ -2,17 +2,14 @@
 
 /**
  * @Project emReport module
- * @Author K55CA UET (DuNT;LocBH;ThangLD)
+ * @Author K55CA UET (DuNT;LocBH)
  * @copyright 2012
  * @createdate 11/06/2012 8:34
  */
 
 if ( ! defined( 'NV_IS_MOD_EMREPORT' ) ) die( 'Stop!!!' );
 
-$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "` WHERE `ten` = '" . $user_info['username'] . "'";
-$result = $db->sql_query ($query);
-$numrows = $db->sql_numrows($result);
-if ($numrows != 0) die($lang_module['multi_error']);
+if ( isCreated($user_info['username']) ) die($lang_module['multi_error']);
 
 $submit = $nv_Request->get_int('submit','post',0);
 
@@ -23,56 +20,12 @@ if( $submit == 0 ){
 }else{
 	$cmnd = filter_text_input('cmnd', 'post', '');
 	if (strcmp($cmnd, '') == 0 or !is_numeric($cmnd)){
-		$contents = '<p>Số CMND chưa được nhập đúng. Quay lại để thực hiện !</p>';
+		$contents = '<p>'. $lang_module['cmnd_not_numeric'] .'</p>';
 		$contents .= '<input type="button" value="Quay lại" onclick="window.history.back()" />';
 	}else{
 		// Thêm vào CSDL
-		$query = "INSERT INTO `" . NV_PREFIXLANG . "_" . $module_data . "` (`cmnd`, `ten`) VALUES ('". $cmnd . "', '" . $user_info['username'] . "')";
+		$query = "INSERT INTO `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` (`cmnd`, `ten`) VALUES ('". $cmnd . "', '" . $user_info['username'] . "')";
 		$db->sql_query($query);
-		// DOM PHP XML
-		$doc = new DOMDocument('1.0', 'UTF-8');
-		$doc->formatOutput = true;
-		
-		$root = $doc->createElement( "HOSOBENHAN" );
-		$doc->appendChild( $root );
-		
-		$benhnhan = $doc->createElement( "BENHNHAN" );
-		
-		$xcmnd = $doc->createElement( "CMND" );
-		$xcmnd->appendChild(
-			$doc->createTextNode( $cmnd )
-		);
-		
-		$hoten = $doc->createElement( "HOTEN" );
-		$hoten->appendChild(
-			$doc->createTextNode( $user_info['full_name'] )
-		);
-		
-		$gioitinh = $doc->createElement( "GIOITINH" );
-		$gioitinh->appendChild(
-			$doc->createTextNode( $user_info['gender'] )
-		);
-		
-		$ngaysinh = $doc->createElement( "NGAYSINH" );
-		$ngaysinh->appendChild(
-			$doc->createTextNode( nv_date('d/m/Y', $user_info['birthday']) )
-		);
-		
-		$quequan = $doc->createElement( "QUEQUAN" );
-		$quequan->appendChild(
-			$doc->createTextNode( $user_info['location'] )
-		);
-		
-		$benhnhan->appendChild( $xcmnd );
-		$benhnhan->appendChild( $hoten );
-		$benhnhan->appendChild( $gioitinh );
-		$benhnhan->appendChild( $ngaysinh );
-		$benhnhan->appendChild( $quequan );
-		
-		
-		$root->appendChild( $benhnhan );
-		
-		$doc->save($cmnd . '.xml');
 		$contents .= $lang_module['create_success'];
 	}
 }

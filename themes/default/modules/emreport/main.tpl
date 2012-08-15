@@ -1,8 +1,9 @@
 <!-- BEGIN: main -->
 	<br/>
 	<div align="center">
-		<input type="button" value="{VALUE}" onclick="window.location.href='{LINK}'">
-		{ADMIN}
+		<!-- BEGIN: button -->
+			<input class="btn" type="button" value="{VALUE}" onclick="window.location.href='{LINK}'">
+		<!-- END: button -->
 		<br/>
 		<br/>
         <form action="{ACTION}" method="post">

@@ -2,7 +2,7 @@
 
 /**
  * @Project emReport module
- * @Author K55CA UET (DuNT;LocBH;ThangLD)
+ * @Author K55CA UET (DuNT;LocBH)
  * @copyright 2012
  * @createdate 11/06/2012 8:34
  */
@@ -15,29 +15,30 @@ if( ! defined('NV_IS_USER') ){
 	$contents .= $lang_module['loginalert'];
 }
 else{
-	$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "` WHERE `ten` = '" . $user_info['username'] . "'";
-	$result = $db->sql_query ($query);
-	$numrows = $db->sql_numrows($result);
-	
-	if($numrows == 0){
-		$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=crebook";
-		$value = "Tạo sổ cá nhân";
-	}else{
-		$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . $user_info['username'];
-		$value = "Xem sổ cá nhân";
-	}
-	
 	$action = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=search";
 	$xtpl = new XTemplate ( "main.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
 	$xtpl->assign('ACTION', $action);
-	$xtpl->assign('LINK', $link);
-	$xtpl->assign('VALUE', $value);
 	
-	if (NV_IS_SPADMIN){
-		$link_admin = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=create_for_user";
-		$xtpl->assign('ADMIN', '<input type="button" value="Tạo sổ cho bệnh nhân" onclick="window.location.href=' . $link_admin . '">');
+	if (!isDoctor($user_info['username'])) {
+		$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `ten` = '" . $user_info['username'] . "'";
+		$result = $db->sql_query ($query);
+		$numrows = $db->sql_numrows($result);
+		
+		if($numrows == 0){
+			$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=crebook";
+			$value = $lang_module['create_emreport'];
+		}else{
+			$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . $user_info['username'];
+			$value = $lang_module['view_emreport'];
+		}	
+	}else{
+		$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=creuser";
+		$value = $lang_module['create_emreport_admin'];
 	}
 	
+	$xtpl->assign('LINK', $link);
+	$xtpl->assign('VALUE', $value);
+	$xtpl->parse('main.button');
 	$xtpl->parse('main');
 	$contents .= $xtpl->text('main');
 	
@@ -49,31 +50,30 @@ else{
 		{
 		    $contents .= "<p align='center'>" . $lang_module['search_null'] . "</p>";
 		}else{
-			$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "` WHERE `cmnd` = '" . $var . "'";
+			$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `cmnd` = '" . $var . "'";
 			$result = $db->sql_query ($query);
 			$numrows = $db->sql_numrows($result);
 			
 			// If we have no results		
 			if ($numrows == 0)
 			{
-			    $contents .= "<p align='center'>Không tìm thấy bệnh nhân nào với số CMND <b>" . $var . "</b></p>";
+			    $contents .= "<p align='center'>" . $lang_module['cmnd_not_found'] . "<b>" . $var . "</b></p>";
 			}
 			else{
 				// now you can display the results returned
 				$row = $db->sql_fetchrow($result);
-				$name = $row["ten"];
-				Header("Location: " . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . $name);
+				Header("Location: " . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . $row['cmnd']);
 			}
 		}
 	}
 	
 	// View func
 	if ($Lfunc == 'view'){
-		$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "` WHERE `ten` = '" . $Lname . "'";
+		$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `cmnd` = '" . $Lcmnd . "'";
 		$result = $db->sql_query ($query);
 		$row = $db->sql_fetchrow($result);
 		
-		$query = "SELECT * FROM `" . NV_USERS_GLOBALTABLE . "` WHERE `username` = '" . $Lname . "'";
+		$query = "SELECT * FROM `" . NV_USERS_GLOBALTABLE . "` WHERE `username` = '" . $row['ten'] . "'";
 		$result = $db->sql_query ($query);
 		$res = $db->sql_fetchrow($result);
 		
@@ -84,9 +84,29 @@ else{
 		$xtpl->assign('GENDER', $res['gender']);
 		$xtpl->assign('BIRTHDAY', nv_date('d/m/Y', $res['birthday']));
 		$xtpl->assign('LOCATION', $res['location']);
-		if (NV_IS_SPADMIN){
-			$xtpl->assign('ADMIN', '<input type="button" value="Khám mới" onclick="window.location.href=' . $link . '">');
+		if ( isDoctor($user_info['username'])){
+			$xtpl->assign('LINK', $link);	
+			$xtpl->parse('main.examine');
 		}
+		// list report
+		$list = '';
+		
+		$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_kham` WHERE `cmnd` = '" . $row['cmnd'] . "'";
+		$result = $db->sql_query ($query);
+		
+		while ($res = $db->sql_fetchrow($result)) {
+			$list .= "<tr>
+						<td>" . nv_date('d/m/Y', $res['ngaykham']) . "</td>
+						<td>" . $res['khambenh'] . "</td>
+						<td>" . nv_unhtmlspecialchars($res['chandoan']) . "</td>
+						<td>" . nv_unhtmlspecialchars($res['ketluan']) . "</td>
+						<td>" . nv_unhtmlspecialchars($res['donthuoc']) . "</td>
+						<td>" . nv_unhtmlspecialchars($res['ghichu']) . "</td>
+						<td>" . $res['dinhkem'] . "</td>
+						<td>" . $res['nguoikham'] . "</td>
+					</tr>";
+		}		
+		$xtpl->assign('LIST', $list);
 		$xtpl->parse('main');
 		$contents .= $xtpl->text('main');
 	}
