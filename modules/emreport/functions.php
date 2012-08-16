@@ -36,4 +36,16 @@ function isCreated($name) {
 	return false;
 }
 
+function getCMND($name) {
+	global $module_data, $db;
+	$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `ten` = '" . $name . "'";
+	$result = $db->sql_query($query);
+	$row = $db->sql_fetchrow($result);
+	return $row['cmnd'];
+}
+
+function isValidCMND($number) {
+    return preg_match('/^\d+$/', $number);
+}
+
 ?>

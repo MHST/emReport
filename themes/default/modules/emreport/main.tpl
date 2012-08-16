@@ -13,5 +13,8 @@
             <input type="hidden" value="1" name="submit">
         </form>
         <br/>
+        <!-- BEGIN: error -->
+        	<p style="color:red;">{ERROR} {CMND}</p>
+        <!-- END: error -->
     </div>
 <!-- END: main -->

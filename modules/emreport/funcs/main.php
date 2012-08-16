@@ -28,7 +28,7 @@ else{
 			$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=crebook";
 			$value = $lang_module['create_emreport'];
 		}else{
-			$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . $user_info['username'];
+			$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . getCMND($user_info['username']);
 			$value = $lang_module['view_emreport'];
 		}	
 	}else{
@@ -39,16 +39,18 @@ else{
 	$xtpl->assign('LINK', $link);
 	$xtpl->assign('VALUE', $value);
 	$xtpl->parse('main.button');
-	$xtpl->parse('main');
-	$contents .= $xtpl->text('main');
 	
 	// Search func
 	if ($Lfunc == 'search'){
 		$var = filter_text_input('q', 'post', '');
 		
-		if ($var == "")
+		if ($var == 0){
+			$xtpl->assign('ERROR', $lang_module['edit_error_cmnd']);
+			$xtpl->parse('main.error');
+		} elseif ($var == "")
 		{
-		    $contents .= "<p align='center'>" . $lang_module['search_null'] . "</p>";
+		    $xtpl->assign('ERROR', $lang_module['search_null']);
+		    $xtpl->parse('main.error');
 		}else{
 			$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `cmnd` = '" . $var . "'";
 			$result = $db->sql_query ($query);
@@ -57,15 +59,19 @@ else{
 			// If we have no results		
 			if ($numrows == 0)
 			{
-			    $contents .= "<p align='center'>" . $lang_module['cmnd_not_found'] . "<b>" . $var . "</b></p>";
+			    $xtpl->assign('ERROR', $lang_module['cmnd_not_found']);
+			    $xtpl->assign('CMND', $var);
+			    $xtpl->parse('main.error');
 			}
 			else{
-				// now you can display the results returned
 				$row = $db->sql_fetchrow($result);
 				Header("Location: " . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . $row['cmnd']);
 			}
 		}
 	}
+	
+	$xtpl->parse('main');
+	$contents .= $xtpl->text('main');
 	
 	// View func
 	if ($Lfunc == 'view'){

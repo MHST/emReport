@@ -80,4 +80,7 @@ $lang_module['doctor_add'] = "Thêm bác sĩ";
 $lang_module['member_add'] = "Thêm thành viên";
 $lang_module['edit_error_username_exist'] =
     "Tên người dùng này đã được thành viên khác sử dụng. Hãy chọn tên khác";
+$lang_module['edit_error_email'] = "Email nhập vào không hợp lệ";
+$lang_module['edit_error_email_exist'] =
+    "Email đã được thành viên khác sử dụng. Hãy chọn email khác";
 ?>

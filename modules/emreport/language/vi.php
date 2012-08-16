@@ -83,4 +83,13 @@ $lang_module['edit_error_username_exist'] =
     "Tên người dùng này đã được thành viên khác sử dụng. Hãy chọn tên khác";
 $lang_module['edit_add_error'] =
     "Lỗi: Không cập nhật được thông tin thành viên!";
+$lang_module['edit_error_email'] = "Email nhập vào không hợp lệ";
+$lang_module['edit_error_email_exist'] =
+    "Email đã được thành viên khác sử dụng. Hãy chọn email khác";
+$lang_module['edit_error_cmnd'] = "Số CMND không hợp lệ";
+$lang_module['edit_error_cmnd_empty'] = "Số CMND chưa được nhập";
+$lang_module['edit_error_cmnd_exist'] = "Số CMND đã tồn tại";
+$lang_module['edit_error_full_name'] = "Tên bệnh nhân chưa được nhập";
+$lang_module['edit_error_birthday'] = "Ngày tháng năm sinh chưa được nhập";
+$lang_module['edit_error_location'] = "Địa chỉ chưa được nhập";
 ?>
