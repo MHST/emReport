@@ -46,7 +46,7 @@ $lang_module['male'] = "Nam";
 $lang_module['female'] = "Nữ";
 $lang_module['NA'] = "N/A";
 $lang_module['avata'] = "Hình đại diện";
-$lang_module['birthday'] = "Ngày tháng năm sinh";
+$lang_module['birthday'] = "Ngày sinh";
 $lang_module['date'] = "Ngày";
 $lang_module['month'] = "Tháng";
 $lang_module['year'] = "Năm";
@@ -92,4 +92,5 @@ $lang_module['edit_error_cmnd_exist'] = "Số CMND đã tồn tại";
 $lang_module['edit_error_full_name'] = "Tên bệnh nhân chưa được nhập";
 $lang_module['edit_error_birthday'] = "Ngày tháng năm sinh chưa được nhập";
 $lang_module['edit_error_location'] = "Địa chỉ chưa được nhập";
+$lang_module['error_doctor_func'] = "Chức năng này chỉ dành cho Bác Sĩ !!!";
 ?>

@@ -1,0 +1,117 @@
+/*
+Command buttons.
+*/
+a.win-command-large {
+    display: inline-block;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    vertical-align: middle;
+    color: #da4f49;
+}
+a.win-command-large,
+button.win-command-large {
+    background: none;
+    background-clip: border-box;
+    height: auto; /* height is 88px (label) or 68px (no label) */
+    padding: 12px 0; /* bottom dependent on label/img, 2px margin */
+    margin: 0 5px;
+    border: 0;
+    min-width: 42px;
+    text-align: center;
+    font-size: 9pt;
+    font-weight: normal;
+    line-height: 16px;
+}
+
+a.win-hidefocus:focus,
+button.win-hidefocus:focus {
+    outline: none;
+}
+
+/*
+Command button icons.
+*/
+
+.win-commandimage-large {
+    font-family: "IcoMoon";
+    letter-spacing: 0;
+
+    /* Applications provide their own content, like &#xE0D5;. */
+    vertical-align: middle;
+    font-size: 40pt;
+    margin: -2px;
+    line-height: 85px; /* line-height must match the content box height */
+    background-position: 0 0;
+    /*background-origin: border-box;*/
+    display: inline-block;
+    /* Still 40px */
+    width: 80px;
+    height: 80px;
+    background-size: 160px 80px;
+}
+
+/*
+Command button "ring".
+*/
+.win-commandring-large,
+a:hover .win-commandring-large,
+a:active .win-commandring-large,
+a.win-command-large:disabled .win-commandring-large,
+a.win-command-large:disabled:active .win-commandring-large,
+button:hover .win-commandring-large,
+button:active .win-commandring-large,
+button.win-command-large:disabled .win-commandring-large,
+button.win-command-large:disabled:active .win-commandring-large {
+    border-width: 3px;
+    border-style: solid;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-clip: border-box;
+}
+
+a:hover:active .win-commandring-large,
+a[aria-checked=true] .win-commandring-large,
+a[aria-checked=true]:active .win-commandring-large,
+a[aria-checked=true]:disabled .win-commandring-large,
+a[aria-checked=true]:disabled:active .win-commandring-large,
+button:hover:active .win-commandring-large,
+button[aria-checked=true] .win-commandring-large,
+button[aria-checked=true]:active .win-commandring-large,
+button[aria-checked=true]:disabled .win-commandring-large,
+button[aria-checked=true]:disabled:active .win-commandring-large {
+    background-clip: border-box;
+}
+
+/*
+Command button labels.
+*/
+a.win-command-large .win-label-large,
+button.win-command-large .win-label-large {
+    position: relative;
+    line-height: 30px;
+    display: block;
+    max-width: 150px; /* 100px button, but allow for 2px margins and 4px padding on each side */
+    padding-left: 20px;  /* 12px between buttons, 6px per side, minus 2px margins */
+    padding-right: 20px;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: keep-all;
+    top: 1px;
+    font-size: 16px;
+    color: #666;
+}
+a.win-command-large,
+a.win-command-large:hover {
+    text-decoration: none;
+    color:#F09D96;
+}
+
+
+a.win-command-large {
+    color:#da4f49;
+    display: inline-block;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    vertical-align: middle;
+}

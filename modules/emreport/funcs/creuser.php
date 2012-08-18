@@ -7,7 +7,7 @@
  * @createdate 11/06/2012 8:34
  */
 
-if ( ! defined( 'NV_IS_MOD_EMREPORT' ) ) die( 'Stop!!!' );
+include 'check.php';
 if ( ! isDoctor($user_info['username']) ) die( 'Stop!!!' );
 
 $page_title = $lang_module['user_add'];

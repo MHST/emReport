@@ -12,7 +12,9 @@ $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
 
 if( ! defined('NV_IS_USER') ){
-	$contents .= $lang_module['loginalert'];
+	$xtpl = new XTemplate ( "login.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
+	$xtpl->parse('main');
+	$contents .= $xtpl->text('main');
 }
 else{
 	$action = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=search";
@@ -44,14 +46,14 @@ else{
 	if ($Lfunc == 'search'){
 		$var = filter_text_input('q', 'post', '');
 		
-		if ($var == 0){
-			$xtpl->assign('ERROR', $lang_module['edit_error_cmnd']);
-			$xtpl->parse('main.error');
-		} elseif ($var == "")
+		if ($var == "")
 		{
 		    $xtpl->assign('ERROR', $lang_module['search_null']);
 		    $xtpl->parse('main.error');
-		}else{
+		} elseif ($var == 0){
+			$xtpl->assign('ERROR', $lang_module['edit_error_cmnd']);
+			$xtpl->parse('main.error');
+		} else{
 			$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `cmnd` = '" . $var . "'";
 			$result = $db->sql_query ($query);
 			$numrows = $db->sql_numrows($result);
@@ -83,7 +85,6 @@ else{
 		$result = $db->sql_query ($query);
 		$res = $db->sql_fetchrow($result);
 		
-		$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=examine";
 		$xtpl = new XTemplate ( "view.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
 		$xtpl->assign('CMND', $row['cmnd']);
 		$xtpl->assign('FULLNAME', $res['full_name']);
@@ -91,7 +92,8 @@ else{
 		$xtpl->assign('BIRTHDAY', nv_date('d/m/Y', $res['birthday']));
 		$xtpl->assign('LOCATION', $res['location']);
 		if ( isDoctor($user_info['username'])){
-			$xtpl->assign('LINK', $link);	
+			$xtpl->assign('LINK', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=examine");	
+			$xtpl->assign('NV_CURRENTTIME', nv_date('d/m/Y', NV_CURRENTTIME));
 			$xtpl->parse('main.examine');
 		}
 		// list report
@@ -117,6 +119,9 @@ else{
 		$contents .= $xtpl->text('main');
 	}
 }
+
+$my_footer = "<script type=\"text/javascript\" src=\"" . NV_BASE_SITEURL .
+    "themes/them_emreport_nuke/js/bootstrap.js\"></script>\n";
 
 include ( NV_ROOTDIR . "/includes/header.php" );
 echo nv_site_theme( $contents );

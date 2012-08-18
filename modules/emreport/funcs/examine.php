@@ -7,11 +7,14 @@
  * @createdate 11/06/2012 8:34
  */
 
-if ( ! defined( 'NV_IS_MOD_EMREPORT' ) ) die( 'Stop!!!' );
+include 'check.php';
 
-if ( ! isDoctor($user_info['username']) ) die( 'Stop!!!' );
+if ( ! isDoctor($user_info['username']) ) die( $lang_module['error_doctor_func'] );
 
-$cmnd = $nv_Request->get_int('cmnd','post',0);
+$page_title = $module_info['custom_title'];
+$key_words = $module_info['keywords'];
+
+$cmnd = filter_text_input('cmnd', 'post', 0);
 $submit = $nv_Request->get_int('submit','post',0);
 
 if( $submit == 0 ){
@@ -21,8 +24,7 @@ if( $submit == 0 ){
 	$xtpl->assign('ACTION', NV_BASE_SITEURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=examine");
 	$xtpl->parse('main');
 	$contents .= $xtpl->text('main');
-}else{
-	$cmnd = filter_text_input('cmnd', 'post', '');
+}else{	
 	$ngaykham = NV_CURRENTTIME;
 	$khambenh = filter_text_input('khambenh', 'post', '');
 	$chandoan = filter_text_textarea('chandoan', '', NV_ALLOWED_HTML_TAGS);

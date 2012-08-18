@@ -7,28 +7,33 @@
  * @createdate 11/06/2012 8:34
  */
 
-if ( ! defined( 'NV_IS_MOD_EMREPORT' ) ) die( 'Stop!!!' );
+include 'check.php';
 
 if ( isCreated($user_info['username']) ) die($lang_module['multi_error']);
 
 $submit = $nv_Request->get_int('submit','post',0);
+$xtpl = new XTemplate ("create.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
 
-if( $submit == 0 ){
-	$xtpl = new XTemplate ("create.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
-	$xtpl->parse('main');
-	$contents .= $xtpl->text('main');
-}else{
+if( $submit != 0 ){
 	$cmnd = filter_text_input('cmnd', 'post', '');
 	if (strcmp($cmnd, '') == 0 or !is_numeric($cmnd)){
-		$contents = '<p>'. $lang_module['cmnd_not_numeric'] .'</p>';
-		$contents .= '<input type="button" value="Quay lại" onclick="window.history.back()" />';
+		$xtpl->assign('ERROR', $lang_module['cmnd_not_numeric']);
 	}else{
 		// Thêm vào CSDL
 		$query = "INSERT INTO `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` (`cmnd`, `ten`) VALUES ('". $cmnd . "', '" . $user_info['username'] . "')";
 		$db->sql_query($query);
-		$contents .= $lang_module['create_success'];
+		$xtpl->assign('ERROR', $lang_module['create_success']);
+		$my_head .= "<script type='text/javascript'>
+        			function redirect(){
+            			window.location = '" . NV_BASE_SITEURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=view-" . $cmnd . "';" .
+        			"}
+        			setTimeout('redirect()', 1000);
+    			</script>";
 	}
 }
+
+$xtpl->parse('main');
+$contents .= $xtpl->text('main');
 
 include ( NV_ROOTDIR . "/includes/header.php" );
 echo nv_site_theme( $contents );

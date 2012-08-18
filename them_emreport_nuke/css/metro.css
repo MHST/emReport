@@ -1,0 +1,75 @@
+
+
+
+
+/*
+AppBarCommand separator.
+*/
+hr.win-command {
+    display: inline-block;
+    padding: 0;
+    margin: 14px 29px 34px 30px;
+    width: 1px;
+    height: 40px;
+    border: 0;
+    vertical-align: top;
+}
+
+/*
+AppBar Edgy Container
+*/
+.win-appbar {
+    z-index: 1001;
+    border-width: 0;
+    width: 100%;
+    height: auto;
+    left: 0;
+    position: fixed;
+}
+
+/*
+AppBar control.
+*/
+.win-commandlayout {
+    /*text-align: right;*/
+    padding-left: 10px;
+    /*padding-right: calc(((100% + 5px) mod 20px) + 5px);*/
+    /*width: calc(100% - 10px - (((100% + 5px) mod 20px) + 5px));*/
+
+    /* Hide whitespace between buttons. */
+    font-size: 0;
+
+    min-height: 88px;
+}
+.win-commandlayout .win-selection {
+    float: left;
+}
+
+
+/* Narrow buttons and no labels when < 1024px. */
+@media (max-width: 1023px) {
+    a.win-command .win-label,
+    button.win-command .win-label {
+        /*display: none;*/
+    }
+    a.win-command .win-commandicon,
+    button.win-command .win-commandicon {
+        margin: 0 8px; /* 2px margin for focus */
+    }
+    .win-commandlayout {
+        min-height: 68px;
+    }
+    hr.win-command {
+        margin-bottom: 14px;
+        margin-top: 14px;
+        margin: 14px 5px 34px 5px;
+
+    }
+}
+
+@media (min-width: 321px) and (max-width: 1023px) {
+    hr.win-command {
+        margin-left: 10px;
+        margin-right: 9px;
+    }
+}
