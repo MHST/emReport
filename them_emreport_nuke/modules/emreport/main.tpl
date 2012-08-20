@@ -8,7 +8,9 @@
 					<!--<h1 class="brand-emreport">Sổ y bạ</h1>-->
 					<div class="shortcuts">
 						<a class="win-command" style="margin-top:-25px;">
-							<span class="win-commandimage win-commandimage-large win-commandring"><i class="icon-user-md win-commandicon-large"></i></span>
+							<span class="win-commandimage win-commandimage-large win-commandring">
+								<i class="icon-user-md win-commandicon-large"></i>
+							</span>
 						</a>
 						<form class="form-horizontal" action="{ACTION}" method="post">
 							<input type="text" class="span3 search-emreport" name="q"><br>

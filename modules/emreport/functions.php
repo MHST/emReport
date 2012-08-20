@@ -45,7 +45,8 @@ function getCMND($name) {
 }
 
 function isValidCMND($number) {
-    return preg_match('/^\d+$/', $number);
+    if (strlen($number) != 9) return false;
+    return true;
 }
 
 ?>

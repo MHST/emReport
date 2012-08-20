@@ -61,7 +61,7 @@ if ($nv_Request->isset_request('confirm', 'post'))
     } elseif (empty($_user['cmnd']))
     {
         $error = $lang_module['edit_error_cmnd_empty'];
-    } elseif ($db->sql_numrows($db->sql_query("SELECT `id` FROM `" .
+    } elseif ($db->sql_numrows($db->sql_query("SELECT * FROM `" .
     NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `cmnd`=" . $db->dbescape(($_user['cmnd'])))) !=
         0)
     {
@@ -93,6 +93,11 @@ if ($nv_Request->isset_request('confirm', 'post'))
             $_user['birthday'] = 0;
         }
         $password = $crypt->hash($_user['password']);
+        
+        if ($_user['email'] == '') {
+        	$_user['email'] = md5($_user['username']) . '@noemail.com';
+        }
+        
         $sql = "INSERT INTO `" . NV_USERS_GLOBALTABLE . "` (
         	`userid`, `username`, `md5username`, `password`, `email`, `full_name`, `gender`, `birthday`, `regdate`,
         		`location`, `question`, `answer`, `passlostkey`, `view_mail`,
@@ -106,12 +111,12 @@ if ($nv_Request->isset_request('confirm', 'post'))
             	
         $userid = $db->sql_query_insert_id($sql);
         
-        // them benh nhan
-        $query = "INSERT INTO `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` (`cmnd`, `ten`) VALUES ('". $_user['cmnd'] . "', '" . $_user['username'] . "')";
-		$db->sql_query($query);
-        
         if ($userid)
         {
+        	// them benh nhan
+        	$query = "INSERT INTO `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` (`cmnd`, `ten`) VALUES ('". $_user['cmnd'] . "', '" . $_user['username'] . "')";
+			$db->sql_query($query);
+			
             nv_insert_logs(NV_LANG_DATA, $module_name, 'log_add_user', "userid " . $userid,
                 $user_info['userid']);
             

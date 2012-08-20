@@ -8,7 +8,7 @@
 				</a>
           	</div>
           	<div class="pull-right">
-				<a href="{NV_BASE_SITEURL}users/logout/" class="win-command">
+				<a href="{NV_BASE_SITEURL}" class="win-command">
 					<span class="win-commandimage win-commandring"><i class="icon-signout"></i></span>
 					<span class="win-label" >Đăng xuất</span>
 				</a>

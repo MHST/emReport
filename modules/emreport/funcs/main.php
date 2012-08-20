@@ -12,9 +12,13 @@ $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
 
 if( ! defined('NV_IS_USER') ){
+	$redirect = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "";
+	$link = NV_BASE_SITEURL . "index.php?" . NV_NAME_VARIABLE . "=users&" . NV_OP_VARIABLE . "=login&nv_redirect=" . nv_base64_encode( $redirect );	
+
 	$xtpl = new XTemplate ( "login.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
+	$xtpl->assign('LOGIN', $link);
 	$xtpl->parse('main');
-	$contents .= $xtpl->text('main');
+	$contents = $xtpl->text('main');
 }
 else{
 	$action = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=search";
@@ -44,17 +48,17 @@ else{
 	
 	// Search func
 	if ($Lfunc == 'search'){
-		$var = filter_text_input('q', 'post', '');
+		$cmnd = filter_text_input('q', 'post', '');
 		
-		if ($var == "")
+		if ($cmnd == "")
 		{
 		    $xtpl->assign('ERROR', $lang_module['search_null']);
 		    $xtpl->parse('main.error');
-		} elseif ($var == 0){
+		} elseif ($cmnd == 0 || !isValidCMND($cmnd)){
 			$xtpl->assign('ERROR', $lang_module['edit_error_cmnd']);
 			$xtpl->parse('main.error');
 		} else{
-			$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `cmnd` = '" . $var . "'";
+			$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `cmnd` = '" . $cmnd . "'";
 			$result = $db->sql_query ($query);
 			$numrows = $db->sql_numrows($result);
 			
@@ -62,7 +66,7 @@ else{
 			if ($numrows == 0)
 			{
 			    $xtpl->assign('ERROR', $lang_module['cmnd_not_found']);
-			    $xtpl->assign('CMND', $var);
+			    $xtpl->assign('CMND', $cmnd);
 			    $xtpl->parse('main.error');
 			}
 			else{
@@ -73,10 +77,11 @@ else{
 	}
 	
 	$xtpl->parse('main');
-	$contents .= $xtpl->text('main');
+	$contents = $xtpl->text('main');
 	
 	// View func
 	if ($Lfunc == 'view'){
+		include 'markdown.php';
 		$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `cmnd` = '" . $Lcmnd . "'";
 		$result = $db->sql_query ($query);
 		$row = $db->sql_fetchrow($result);
@@ -106,22 +111,21 @@ else{
 			$list .= "<tr>
 						<td>" . nv_date('d/m/Y', $res['ngaykham']) . "</td>
 						<td>" . $res['khambenh'] . "</td>
-						<td>" . nv_unhtmlspecialchars($res['chandoan']) . "</td>
-						<td>" . nv_unhtmlspecialchars($res['ketluan']) . "</td>
-						<td>" . nv_unhtmlspecialchars($res['donthuoc']) . "</td>
-						<td>" . nv_unhtmlspecialchars($res['ghichu']) . "</td>
+						<td>" . Markdown(nv_unhtmlspecialchars($res['chandoan'])) . "</td>
+						<td>" . Markdown(nv_unhtmlspecialchars($res['ketluan'])) . "</td>
+						<td>" . Markdown(nv_unhtmlspecialchars($res['donthuoc'])) . "</td>
+						<td>" . Markdown(nv_unhtmlspecialchars($res['ghichu'])) . "</td>
 						<td>" . $res['dinhkem'] . "</td>
 						<td>" . $res['nguoikham'] . "</td>
 					</tr>";
-		}		
+		}
 		$xtpl->assign('LIST', $list);
 		$xtpl->parse('main');
 		$contents .= $xtpl->text('main');
+		$my_footer .= "<script type=\"text/javascript\" src=\"" . NV_BASE_SITEURL .
+    		"themes/" . $global_config ['module_theme'] . "/js/bootstrap.js\"></script>\n";
 	}
 }
-
-$my_footer = "<script type=\"text/javascript\" src=\"" . NV_BASE_SITEURL .
-    "themes/them_emreport_nuke/js/bootstrap.js\"></script>\n";
 
 include ( NV_ROOTDIR . "/includes/header.php" );
 echo nv_site_theme( $contents );
