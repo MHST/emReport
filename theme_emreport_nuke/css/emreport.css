@@ -1,8 +1,643 @@
-body{padding-top:90px}a.win-command{display:inline-block;cursor:pointer;letter-spacing:.02em;vertical-align:middle}a.win-command,button.win-command{background:0;background-clip:border-box;height:auto;padding:12px 0;margin:0 5px;border:0;min-width:42px;text-align:center;font-size:9pt;font-weight:normal;line-height:16px}a.win-hidefocus:focus,button.win-hidefocus:focus{outline:0}.win-commandimage{font-family:"IcoMoon";letter-spacing:0;vertical-align:middle;font-size:14pt;margin:-2px;line-height:40px;background-position:0 0;display:inline-block;width:40px;height:40px;background-size:160px 80px}.win-commandring,a:hover .win-commandring,a:active .win-commandring,a.win-command:disabled .win-commandring,a.win-command:disabled:active .win-commandring,button:hover .win-commandring,button:active .win-commandring,button.win-command:disabled .win-commandring,button.win-command:disabled:active .win-commandring{border-width:2px;border-style:solid;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;background-clip:border-box}a:hover:active .win-commandring,a[aria-checked=true] .win-commandring,a[aria-checked=true]:active .win-commandring,a[aria-checked=true]:disabled .win-commandring,a[aria-checked=true]:disabled:active .win-commandring,button:hover:active .win-commandring,button[aria-checked=true] .win-commandring,button[aria-checked=true]:active .win-commandring,button[aria-checked=true]:disabled .win-commandring,button[aria-checked=true]:disabled:active .win-commandring{background-clip:border-box}a.win-command .win-label,button.win-command .win-label{position:relative;line-height:20px;display:block;max-width:120px;padding-left:4px;padding-right:4px;overflow:hidden;word-wrap:break-word;word-break:keep-all;top:1px}a.win-command,a.win-command:hover{text-decoration:none}a.active{color:#da4f49}.win-commandimage-small{margin-right:-2px;width:20px;height:20px}i[class^="icon-"].win-commandicon-small{font-size:10px;margin-top:-22px;margin-left:2px;margin-right:0;color:#08c}.win-commandimage-large{margin-left:20px;color:#da4f49;border:2px solid;margin-right:-2px;width:80px;height:80px}i[class^="icon-"].win-commandicon-large{color:#da4f49;font-size:60px;margin-top:20px;margin-left:2px;margin-right:0}a.win-command .win-label-large{max-width:140px;margin-top:10px;font-size:16px}.shortcuts{padding-bottom:6%;text-align:center}.shortcuts .shortcut{position:relative;max-width:100px;min-width:100px;width:100px;height:65px;display:inline-block;padding:17px 0;margin:0 4% 3.4em;vertical-align:top;text-decoration:none;background-color:#da4f49;-webkit-border-radius:2px;-moz-border-radius:2px;border-radius:500px}.shortcuts .shortcut .shortcut-icon{margin-top:.35em;margin-bottom:.25em;font-size:42px;color:#888}.shortcuts .shortcut .shortcut-icon-hearder{font-size:80px;margin-left:-0px;margin-top:10px;color:#fff;text-shadow:1px 1px #888}.shortcuts .shortcut:hover{background-color:#e29491}.shortcuts .shortcut:hover .shortcut-icon{color:#666}.shortcuts .shortcut-label{display:block;height:20px;margin-top:40px;font-size:13px;font-weight:bold;color:#666;-moz-hyphens:auto;-ms-hyphens:auto;-webkit-hyphens:auto;hyphens:auto}.action-table .btn-small{padding:4px 5px 5px;font-size:10px}.action-table .td-actions{width:80px;text-align:center}.action-table .td-actions .btn{margin-right:.5em}.action-table .td-actions .btn:last-child{margin-rigth:0}@media(max-width:979px){.shortcuts .shortcut{width:31%}}.modal-report{width:1032px;margin:-250px auto 0 -500px}.form-horizontal .search-emreport{width:80%;color:#444;font-size:18px;height:24px}.widget{position:relative;clear:both;width:auto;margin-bottom:1em;overflow:hidden}.widget-header{height:100%;line-height:40px;padding-bottom:3px;background-color:#f8f8f8;border:1px solid #d4d4d4;-webkit-border-top-left-radius:2px;-webkit-border-top-right-radius:2px;-moz-border-radius-topleft:2px;-moz-border-radius-topright:2px;border-top-left-radius:2px;border-top-right-radius:2px;-webkit-background-clip:padding-box}.widget-header h3{position:absolute;display:inline-block;margin-left:10px;font-size:14px;color:#5a5a5a;line-height:22px}.widget-header [class^="icon-"],.widget-header [class*=" icon-"]{display:inline-block;margin-left:13px;margin-right:-2px;font-size:16px;color:#555;vertical-align:middle}.widget-boxsearch{box-shadow:0 8px 6px -6px #999}.widget-content{padding:20px 15px 15px;background-color:#f5f5f5;border:1px solid #d4d4d4;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px}.widget-header+.widget-content{border-top:0;-webkit-border-top-left-radius:0;-webkit-border-top-right-radius:0;-moz-border-radius-topleft:0;-moz-border-radius-topright:0;border-top-left-radius:0;border-top-right-radius:0}.widget-nopad .widget-content{padding:0}.widget-content:before,.widget-content:after{content:"";display:table}.widget-content:after{clear:both}.widget-content{zoom:1}.widget-table .widget-content{padding:0}.widget-table .table{margin-bottom:0;border:0}.widget-table .table tr td:first-child{border-left:none}.widget-table .table tr th:first-child{border-left:none}.widget-content .wysihtml5-toolbar{position:relative;text-align:center;margin-top:-10px}.widget-plain{background:transparent;border:0}.widget-plain .widget-content{padding:0;background:transparent;border:0}.widget-box .widget-content{background:#e3e3e3;background:#FFF}.table-bordered th{background-color:#f5f5f5}.inline-text{position:absolute;margin-top:3px}/*!
+/*------------------------------------------------------------------
+
+[Emreport Stylesheet]
+
+	Project:	Emreport
+	Version:	1.0
+	Author :	Huu Loc
+
+
+
+[Table of contents]
+
+	1. Shortcuts
+	2. Stats
+	3. Task List
+	4. News Item
+
+-------------------------------------------------------------------*/
+
+
+
+
+/*--------------  Global initial-----------*/
+
+body {
+	padding-top:90px;
+}
+
+
+
+
+
+/*Command buttons.*/
+a.win-command {
+    display: inline-block;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    vertical-align: middle;
+}
+a.win-command,
+button.win-command {
+    background: none;
+    background-clip: border-box;
+    height: auto; /* height is 88px (label) or 68px (no label) */
+    padding: 12px 0; /* bottom dependent on label/img, 2px margin */
+    margin: 0 5px;
+    border: 0;
+    min-width: 42px;
+    text-align: center;
+    font-size: 9pt;
+    font-weight: normal;
+    line-height: 16px;
+}
+
+a.win-hidefocus:focus,
+button.win-hidefocus:focus {
+    outline: none;
+}
+
+/*
+Command button icons.
+*/
+
+.win-commandimage {
+    font-family: "IcoMoon";
+    letter-spacing: 0;
+
+    /* Applications provide their own content, like &#xE0D5;. */
+    vertical-align: middle;
+    font-size: 14pt;
+    margin: -2px;
+    line-height: 40px; /* line-height must match the content box height */
+    background-position: 0 0;
+    /*background-origin: border-box;*/
+    display: inline-block;
+    /* Still 40px */
+    width: 40px;
+    height: 40px;
+    background-size: 160px 80px;
+}
+
+/*
+Command button "ring".
+*/
+.win-commandring,
+a:hover .win-commandring,
+a:active .win-commandring,
+a.win-command:disabled .win-commandring,
+a.win-command:disabled:active .win-commandring,
+button:hover .win-commandring,
+button:active .win-commandring,
+button.win-command:disabled .win-commandring,
+button.win-command:disabled:active .win-commandring {
+    border-width: 2px;
+    border-style: solid;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-clip: border-box;
+}
+
+a:hover:active .win-commandring,
+a[aria-checked=true] .win-commandring,
+a[aria-checked=true]:active .win-commandring,
+a[aria-checked=true]:disabled .win-commandring,
+a[aria-checked=true]:disabled:active .win-commandring,
+button:hover:active .win-commandring,
+button[aria-checked=true] .win-commandring,
+button[aria-checked=true]:active .win-commandring,
+button[aria-checked=true]:disabled .win-commandring,
+button[aria-checked=true]:disabled:active .win-commandring {
+    background-clip: border-box;
+}
+
+/*
+Command button labels.
+*/
+a.win-command .win-label,
+button.win-command .win-label {
+    position: relative;
+    line-height: 20px;
+    display: block;
+    max-width: 120px; /* 100px button, but allow for 2px margins and 4px padding on each side */
+    padding-left: 4px;  /* 12px between buttons, 6px per side, minus 2px margins */
+    padding-right: 4px;
+    overflow: hidden;
+    word-wrap: break-word;
+    word-break: keep-all;
+    top: 1px;
+}
+
+a.win-command,
+a.win-command:hover {
+    text-decoration: none
+}
+a.active{
+	color: #da4f49;
+}
+
+/* win-Command large*/
+.win-commandimage-small{
+	margin-right:-2px;
+	width:20px;
+	height:20px;
+}
+i[class^="icon-"].win-commandicon-small{
+	font-size:10px;
+	margin-top:-22px;
+	margin-left:2px;
+	margin-right:0;
+	color:#0088cc;
+}
+/* win-Command large*/
+.win-commandimage-large{
+	margin-left: 20px;
+	color: #da4f49;
+	border: 2px solid;
+	margin-right:-2px;
+	width:80px;
+	height:80px;
+}
+i[class^="icon-"].win-commandicon-large{
+	color: #da4f49;
+	font-size:60px;
+	margin-top:20px;
+	margin-left:2px;
+	margin-right:0;
+}
+a.win-command .win-label-large{
+	max-width: 140px;
+	margin-top:10px;
+	font-size: 16px;
+}
+
+
+/*--------------[1. Shortcuts / .shortcuts]-----------*/
+.shortcuts {
+	padding-bottom:6%;
+	text-align: center;	
+}
+
+.shortcuts .shortcut { 
+	position: relative;
+	max-width: 100px;
+	min-width: 100px;
+	width:100px;
+	height: 65px;
+	display: inline-block;
+	padding: 17px 0px;
+	margin: 0 4% 3.4em;
+	vertical-align: top;	
+	text-decoration: none;
+
+	background-color: #da4f49;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 500px;
+}
+
+.shortcuts .shortcut .shortcut-icon {
+	margin-top: .35em;
+	margin-bottom: .25em;
+	font-size: 42px;
+	color: #888;
+}
+.shortcuts .shortcut .shortcut-icon-hearder {
+	font-size:80px;
+	margin-left:-0px;
+	margin-top:10px;
+	color:#fff;
+	text-shadow:1px 1px #888;
+}
+
+.shortcuts .shortcut:hover {
+	background-color: #E29491;
+}
+
+.shortcuts .shortcut:hover .shortcut-icon {
+	color: #666;
+}
+
+.shortcuts .shortcut-label {
+	display: block;
+	height: 20px;
+	margin-top: 40px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #666;
+	-moz-hyphens:auto;
+-ms-hyphens:auto;
+-webkit-hyphens:auto;
+hyphens:auto;
+}
+
+
+
+
+/*------------------------------------------------------------------
+[4. Action Table / .action-table]
+*/
+
+.action-table .btn-small {
+	padding: 4px 5px 5px;
+	
+	font-size: 10px;
+}
+
+.action-table .td-actions { 
+	width: 80px; 
+	
+	text-align: center; 
+}
+
+	.action-table .td-actions .btn { 
+		margin-right: .5em;		
+	}
+	
+	.action-table .td-actions .btn:last-child { 
+		margin-rigth: 0; 		
+	}
+	
+	
+	
+	
+	
+	
+	
+@media (max-width: 979px) {
+	
+	.shortcuts .shortcut {
+		width: 31%;
+	}
+}
+
+
+
+
+.modal-report{
+	width: 1032px;
+	margin: -250px auto 0 -500px;
+}
+
+.form-horizontal .search-emreport{
+	width: 80%;
+	color:#444;
+	font-size:18px;
+	height:24px;
+}
+
+
+/*------------------------------------------------------------------
+[Widget / .widget]
+*/
+
+.widget {
+	
+	position: relative;
+	clear: both;
+	
+	width: auto;
+	
+	margin-bottom: 1em;
+	overflow: hidden;
+}
+
+	
+.widget-header {
+	height: 100%;
+	line-height: 40px;
+	padding-bottom: 3px;
+	background-color: #f8f8f8;
+	border: 1px solid #d4d4d4;
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-top-right-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-topright: 2px;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	
+	-webkit-background-clip: padding-box;
+}	
+	
+	.widget-header h3 {
+		position: absolute;
+		display: inline-block;
+		margin-left:10px;
+		font-size: 14px;
+		color: #5A5A5A;
+		line-height: 22px;
+	}
+	
+		.widget-header [class^="icon-"], .widget-header [class*=" icon-"] {
+			display: inline-block;
+			margin-left: 13px;
+			margin-right: -2px;
+			font-size: 16px;
+			color: #555;
+			vertical-align: middle;
+			
+		}
+
+.widget-boxsearch {
+	box-shadow: 0px 8px 6px -6px #999;
+}
+.widget-content {
+	padding: 20px 15px 15px;
+	background-color: #f5f5f5;
+	border: 1px solid #d4d4d4;
+	
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+.widget-header+.widget-content {
+	border-top: none;
+	-webkit-border-top-left-radius: 0;
+	-webkit-border-top-right-radius: 0;
+	-moz-border-radius-topleft: 0;
+	-moz-border-radius-topright: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.widget-nopad .widget-content {
+	padding: 0;
+}
+
+/* Widget Content Clearfix */	
+.widget-content:before,
+.widget-content:after {
+    content:"";
+    display:table;
+}
+
+.widget-content:after {
+    clear:both;
+}
+
+/* For IE 6/7 (trigger hasLayout) */
+.widget-content {
+    zoom:1;
+}
+
+/* Widget Table */
+
+.widget-table .widget-content {
+	padding: 0;
+}
+
+.widget-table .table {
+	margin-bottom: 0;
+	
+	border: none;
+}
+
+.widget-table .table tr td:first-child {
+	border-left: none;
+}
+
+.widget-table .table tr th:first-child {
+	border-left: none;
+}
+
+
+/*wysihtml5-toolbar*/
+.widget-content .wysihtml5-toolbar{
+	position: relative;
+	text-align: center;
+	margin-top: -10px;
+}
+
+/* Widget Plain */
+
+.widget-plain {
+	
+	background: transparent;
+	
+	border: none;
+}
+
+.widget-plain .widget-content {
+	padding: 0;
+	
+	background: transparent;
+	
+	border: none;
+}
+
+
+/* Widget Box */
+
+.widget-box {	
+	
+}
+
+.widget-box .widget-content {	
+	background: #E3E3E3;	
+	background: #FFF;
+}
+
+.table-bordered th {
+	background-color: #f5f5f5;
+}
+.inline-text {
+    position: absolute;
+    margin-top: 3px;
+}
+
+/*!
 * Datepicker for Bootstrap
 *
 * Copyright 2012 Stefan Petre
 * Licensed under the Apache License v2.0
 * http://www.apache.org/licenses/LICENSE-2.0
 *
-*/.datepicker{top:0;left:0;padding:4px;margin-top:1px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.datepicker:before{content:'';display:inline-block;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid #ccc;border-bottom-color:rgba(0,0,0,0.2);position:absolute;top:-7px;left:6px}.datepicker:after{content:'';display:inline-block;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:6px solid #fff;position:absolute;top:-6px;left:7px}.datepicker>div{display:none}.datepicker table{width:100%;margin:0}.datepicker td,.datepicker th{text-align:center;width:20px;height:20px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.datepicker td.day:hover{background:#eee;cursor:pointer}.datepicker td.old,.datepicker td.new{color:#999}.datepicker td.active,.datepicker td.active:hover{background-color:#006dcc;background-image:-moz-linear-gradient(top,#08c,#04c);background-image:-ms-linear-gradient(top,#08c,#04c);background-image:-webkit-gradient(linear,0 0,0 100%,from(#08c),to(#04c));background-image:-webkit-linear-gradient(top,#08c,#04c);background-image:-o-linear-gradient(top,#08c,#04c);background-image:linear-gradient(top,#08c,#04c);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc',endColorstr='#0044cc',GradientType=0);border-color:#04c #0044cc #002a80;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25)}.datepicker td.active:hover,.datepicker td.active:hover:hover,.datepicker td.active:active,.datepicker td.active:hover:active,.datepicker td.active.active,.datepicker td.active:hover.active,.datepicker td.active.disabled,.datepicker td.active:hover.disabled,.datepicker td.active[disabled],.datepicker td.active:hover[disabled]{background-color:#04c}.datepicker td.active:active,.datepicker td.active:hover:active,.datepicker td.active.active,.datepicker td.active:hover.active{background-color:#039 \9}.datepicker td span{display:block;width:47px;height:54px;line-height:54px;float:left;margin:2px;cursor:pointer;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.datepicker td span:hover{background:#eee}.datepicker td span.active{background-color:#006dcc;background-image:-moz-linear-gradient(top,#08c,#04c);background-image:-ms-linear-gradient(top,#08c,#04c);background-image:-webkit-gradient(linear,0 0,0 100%,from(#08c),to(#04c));background-image:-webkit-linear-gradient(top,#08c,#04c);background-image:-o-linear-gradient(top,#08c,#04c);background-image:linear-gradient(top,#08c,#04c);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc',endColorstr='#0044cc',GradientType=0);border-color:#04c #0044cc #002a80;border-color:rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);filter:progid:DXImageTransform.Microsoft.gradient(enabled = false);color:#fff;text-shadow:0 -1px 0 rgba(0,0,0,0.25)}.datepicker td span.active:hover,.datepicker td span.active:active,.datepicker td span.active.active,.datepicker td span.active.disabled,.datepicker td span.active[disabled]{background-color:#04c}.datepicker td span.active:active,.datepicker td span.active.active{background-color:#039 \9}.datepicker td span.old{color:#999}.datepicker th.switch{width:145px}.datepicker thead tr:first-child th{cursor:pointer}.datepicker thead tr:first-child th:hover{background:#eee}.input-append.date .add-on i,.input-prepend.date .add-on i{display:block;cursor:pointer;width:16px;height:16px}@font-face{font-family:'FontAwesome';src:url('../font/fontawesome-webfont.eot');src:url('../font/fontawesome-webfont.eot?#iefix') format('eot'),url('../font/fontawesome-webfont.woff') format('woff'),url('../font/fontawesome-webfont.ttf') format('truetype'),url('../font/fontawesome-webfont.svg#FontAwesome') format('svg');font-weight:normal;font-style:normal}[class^="icon-"]:before,[class*=" icon-"]:before{font-family:FontAwesome;font-weight:normal;font-style:normal;display:inline-block;text-decoration:inherit}a [class^="icon-"],a [class*=" icon-"]{display:inline-block;text-decoration:inherit}.icon-large:before{vertical-align:top;font-size:1.3333333333333333em}.btn [class^="icon-"],.btn [class*=" icon-"]{line-height:1em}li [class^="icon-"],li [class*=" icon-"]{display:inline-block;width:1.25em;text-align:center}li .icon-large[class^="icon-"],li .icon-large[class*=" icon-"]{width:1.875em}li[class^="icon-"],li[class*=" icon-"]{margin-left:0;list-style-type:none}li[class^="icon-"]:before,li[class*=" icon-"]:before{text-indent:-2em;text-align:center}li[class^="icon-"].icon-large:before,li[class*=" icon-"].icon-large:before{text-indent:-1.3333333333333333em}.icon-glass:before{content:"\f000"}.icon-music:before{content:"\f001"}.icon-search:before{content:"\f002"}.icon-envelope:before{content:"\f003"}.icon-heart:before{content:"\f004"}.icon-star:before{content:"\f005"}.icon-star-empty:before{content:"\f006"}.icon-user:before{content:"\f007"}.icon-film:before{content:"\f008"}.icon-th-large:before{content:"\f009"}.icon-th:before{content:"\f00a"}.icon-th-list:before{content:"\f00b"}.icon-ok:before{content:"\f00c"}.icon-remove:before{content:"\f00d"}.icon-zoom-in:before{content:"\f00e"}.icon-zoom-out:before{content:"\f010"}.icon-off:before{content:"\f011"}.icon-signal:before{content:"\f012"}.icon-cog:before{content:"\f013"}.icon-trash:before{content:"\f014"}.icon-home:before{content:"\f015"}.icon-file:before{content:"\f016"}.icon-time:before{content:"\f017"}.icon-road:before{content:"\f018"}.icon-download-alt:before{content:"\f019"}.icon-download:before{content:"\f01a"}.icon-upload:before{content:"\f01b"}.icon-inbox:before{content:"\f01c"}.icon-play-circle:before{content:"\f01d"}.icon-repeat:before{content:"\f01e"}.icon-refresh:before{content:"\f021"}.icon-list-alt:before{content:"\f022"}.icon-lock:before{content:"\f023"}.icon-flag:before{content:"\f024"}.icon-headphones:before{content:"\f025"}.icon-volume-off:before{content:"\f026"}.icon-volume-down:before{content:"\f027"}.icon-volume-up:before{content:"\f028"}.icon-qrcode:before{content:"\f029"}.icon-barcode:before{content:"\f02a"}.icon-tag:before{content:"\f02b"}.icon-tags:before{content:"\f02c"}.icon-book:before{content:"\f02d"}.icon-bookmark:before{content:"\f02e"}.icon-print:before{content:"\f02f"}.icon-camera:before{content:"\f030"}.icon-font:before{content:"\f031"}.icon-bold:before{content:"\f032"}.icon-italic:before{content:"\f033"}.icon-text-height:before{content:"\f034"}.icon-text-width:before{content:"\f035"}.icon-align-left:before{content:"\f036"}.icon-align-center:before{content:"\f037"}.icon-align-right:before{content:"\f038"}.icon-align-justify:before{content:"\f039"}.icon-list:before{content:"\f03a"}.icon-indent-left:before{content:"\f03b"}.icon-indent-right:before{content:"\f03c"}.icon-facetime-video:before{content:"\f03d"}.icon-picture:before{content:"\f03e"}.icon-pencil:before{content:"\f040"}.icon-map-marker:before{content:"\f041"}.icon-adjust:before{content:"\f042"}.icon-tint:before{content:"\f043"}.icon-edit:before{content:"\f044"}.icon-share:before{content:"\f045"}.icon-check:before{content:"\f046"}.icon-move:before{content:"\f047"}.icon-step-backward:before{content:"\f048"}.icon-fast-backward:before{content:"\f049"}.icon-backward:before{content:"\f04a"}.icon-play:before{content:"\f04b"}.icon-pause:before{content:"\f04c"}.icon-stop:before{content:"\f04d"}.icon-forward:before{content:"\f04e"}.icon-fast-forward:before{content:"\f050"}.icon-step-forward:before{content:"\f051"}.icon-eject:before{content:"\f052"}.icon-chevron-left:before{content:"\f053"}.icon-chevron-right:before{content:"\f054"}.icon-plus-sign:before{content:"\f055"}.icon-minus-sign:before{content:"\f056"}.icon-remove-sign:before{content:"\f057"}.icon-ok-sign:before{content:"\f058"}.icon-question-sign:before{content:"\f059"}.icon-info-sign:before{content:"\f05a"}.icon-screenshot:before{content:"\f05b"}.icon-remove-circle:before{content:"\f05c"}.icon-ok-circle:before{content:"\f05d"}.icon-ban-circle:before{content:"\f05e"}.icon-arrow-left:before{content:"\f060"}.icon-arrow-right:before{content:"\f061"}.icon-arrow-up:before{content:"\f062"}.icon-arrow-down:before{content:"\f063"}.icon-share-alt:before{content:"\f064"}.icon-resize-full:before{content:"\f065"}.icon-resize-small:before{content:"\f066"}.icon-plus:before{content:"\f067"}.icon-minus:before{content:"\f068"}.icon-asterisk:before{content:"\f069"}.icon-exclamation-sign:before{content:"\f06a"}.icon-gift:before{content:"\f06b"}.icon-leaf:before{content:"\f06c"}.icon-fire:before{content:"\f06d"}.icon-eye-open:before{content:"\f06e"}.icon-eye-close:before{content:"\f070"}.icon-warning-sign:before{content:"\f071"}.icon-plane:before{content:"\f072"}.icon-calendar:before{content:"\f073"}.icon-random:before{content:"\f074"}.icon-comment:before{content:"\f075"}.icon-magnet:before{content:"\f076"}.icon-chevron-up:before{content:"\f077"}.icon-chevron-down:before{content:"\f078"}.icon-retweet:before{content:"\f079"}.icon-shopping-cart:before{content:"\f07a"}.icon-folder-close:before{content:"\f07b"}.icon-folder-open:before{content:"\f07c"}.icon-resize-vertical:before{content:"\f07d"}.icon-resize-horizontal:before{content:"\f07e"}.icon-bar-chart:before{content:"\f080"}.icon-twitter-sign:before{content:"\f081"}.icon-facebook-sign:before{content:"\f082"}.icon-camera-retro:before{content:"\f083"}.icon-key:before{content:"\f084"}.icon-cogs:before{content:"\f085"}.icon-comments:before{content:"\f086"}.icon-thumbs-up:before{content:"\f087"}.icon-thumbs-down:before{content:"\f088"}.icon-star-half:before{content:"\f089"}.icon-heart-empty:before{content:"\f08a"}.icon-signout:before{content:"\f08b"}.icon-linkedin-sign:before{content:"\f08c"}.icon-pushpin:before{content:"\f08d"}.icon-external-link:before{content:"\f08e"}.icon-signin:before{content:"\f090"}.icon-trophy:before{content:"\f091"}.icon-github-sign:before{content:"\f092"}.icon-upload-alt:before{content:"\f093"}.icon-lemon:before{content:"\f094"}.icon-phone:before{content:"\f095"}.icon-check-empty:before{content:"\f096"}.icon-bookmark-empty:before{content:"\f097"}.icon-phone-sign:before{content:"\f098"}.icon-twitter:before{content:"\f099"}.icon-facebook:before{content:"\f09a"}.icon-github:before{content:"\f09b"}.icon-unlock:before{content:"\f09c"}.icon-credit-card:before{content:"\f09d"}.icon-rss:before{content:"\f09e"}.icon-hdd:before{content:"\f0a0"}.icon-bullhorn:before{content:"\f0a1"}.icon-bell:before{content:"\f0a2"}.icon-certificate:before{content:"\f0a3"}.icon-hand-right:before{content:"\f0a4"}.icon-hand-left:before{content:"\f0a5"}.icon-hand-up:before{content:"\f0a6"}.icon-hand-down:before{content:"\f0a7"}.icon-circle-arrow-left:before{content:"\f0a8"}.icon-circle-arrow-right:before{content:"\f0a9"}.icon-circle-arrow-up:before{content:"\f0aa"}.icon-circle-arrow-down:before{content:"\f0ab"}.icon-globe:before{content:"\f0ac"}.icon-wrench:before{content:"\f0ad"}.icon-tasks:before{content:"\f0ae"}.icon-filter:before{content:"\f0b0"}.icon-briefcase:before{content:"\f0b1"}.icon-fullscreen:before{content:"\f0b2"}.icon-group:before{content:"\f0c0"}.icon-link:before{content:"\f0c1"}.icon-cloud:before{content:"\f0c2"}.icon-beaker:before{content:"\f0c3"}.icon-cut:before{content:"\f0c4"}.icon-copy:before{content:"\f0c5"}.icon-paper-clip:before{content:"\f0c6"}.icon-save:before{content:"\f0c7"}.icon-sign-blank:before{content:"\f0c8"}.icon-reorder:before{content:"\f0c9"}.icon-list-ul:before{content:"\f0ca"}.icon-list-ol:before{content:"\f0cb"}.icon-strikethrough:before{content:"\f0cc"}.icon-underline:before{content:"\f0cd"}.icon-table:before{content:"\f0ce"}.icon-magic:before{content:"\f0d0"}.icon-truck:before{content:"\f0d1"}.icon-pinterest:before{content:"\f0d2"}.icon-pinterest-sign:before{content:"\f0d3"}.icon-google-plus-sign:before{content:"\f0d4"}.icon-google-plus:before{content:"\f0d5"}.icon-money:before{content:"\f0d6"}.icon-caret-down:before{content:"\f0d7"}.icon-caret-up:before{content:"\f0d8"}.icon-caret-left:before{content:"\f0d9"}.icon-caret-right:before{content:"\f0da"}.icon-columns:before{content:"\f0db"}.icon-sort:before{content:"\f0dc"}.icon-sort-down:before{content:"\f0dd"}.icon-sort-up:before{content:"\f0de"}.icon-envelope-alt:before{content:"\f0e0"}.icon-linkedin:before{content:"\f0e1"}.icon-undo:before{content:"\f0e2"}.icon-legal:before{content:"\f0e3"}.icon-dashboard:before{content:"\f0e4"}.icon-comment-alt:before{content:"\f0e5"}.icon-comments-alt:before{content:"\f0e6"}.icon-bolt:before{content:"\f0e7"}.icon-sitemap:before{content:"\f0e8"}.icon-umbrella:before{content:"\f0e9"}.icon-paste:before{content:"\f0ea"}.icon-user-md:before{content:"\f200"}table th{font-weight:bold}table td,table th{padding:9px 10px;text-align:left}@media only screen and (max-width:767px){table.responsive{margin-bottom:0}.pinned{position:absolute;left:0;top:0;background:#fff;width:35%;overflow:hidden;overflow-x:scroll;border-right:1px solid #ccc;border-left:none}.pinned table{border-right:0;border-left:none;width:100%}.pinned table th,.pinned table td{white-space:nowrap}.pinned td:last-child{border-bottom:0}div.table-wrapper{position:relative;margin-bottom:20px;overflow:hidden;border-right:1px solid #ccc}div.table-wrapper div.scrollable table{margin-left:35%}div.table-wrapper div.scrollable{overflow:scroll;overflow-y:hidden}table.responsive td,table.responsive th{position:relative;white-space:nowrap;overflow:hidden}table.responsive th:first-child,table.responsive td:first-child,table.responsive td:first-child,table.responsive.pinned td{display:none}}
+*/
+.datepicker {
+top: 0;
+left: 0;
+padding: 4px;
+margin-top: 1px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+/*.dow {
+border-top: 1px solid #ddd !important;
+}*/
+}
+.datepicker:before {
+content: '';
+display: inline-block;
+border-left: 7px solid transparent;
+border-right: 7px solid transparent;
+border-bottom: 7px solid #ccc;
+border-bottom-color: rgba(0, 0, 0, 0.2);
+position: absolute;
+top: -7px;
+left: 6px;
+}
+.datepicker:after {
+content: '';
+display: inline-block;
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-bottom: 6px solid #ffffff;
+position: absolute;
+top: -6px;
+left: 7px;
+}
+.datepicker > div {
+display: none;
+}
+.datepicker table {
+width: 100%;
+margin: 0;
+}
+.datepicker td, .datepicker th {
+text-align: center;
+width: 20px;
+height: 20px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+.datepicker td.day:hover {
+background: #eeeeee;
+cursor: pointer;
+}
+.datepicker td.old, .datepicker td.new {
+color: #999999;
+}
+.datepicker td.active, .datepicker td.active:hover {
+background-color: #006dcc;
+background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+background-image: linear-gradient(top, #0088cc, #0044cc);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
+border-color: #0044cc #0044cc #002a80;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+color: #fff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker td.active:hover,
+.datepicker td.active:hover:hover,
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active,
+.datepicker td.active.disabled,
+.datepicker td.active:hover.disabled,
+.datepicker td.active[disabled],
+.datepicker td.active:hover[disabled] {
+background-color: #0044cc;
+}
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active {
+background-color: #003399 \9;
+}
+.datepicker td span {
+display: block;
+width: 47px;
+height: 54px;
+line-height: 54px;
+float: left;
+margin: 2px;
+cursor: pointer;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+.datepicker td span:hover {
+background: #eeeeee;
+}
+.datepicker td span.active {
+background-color: #006dcc;
+background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+background-image: -ms-linear-gradient(top, #0088cc, #0044cc);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+background-image: linear-gradient(top, #0088cc, #0044cc);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0088cc', endColorstr='#0044cc', GradientType=0);
+border-color: #0044cc #0044cc #002a80;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+color: #fff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker td span.active:hover,
+.datepicker td span.active:active,
+.datepicker td span.active.active,
+.datepicker td span.active.disabled,
+.datepicker td span.active[disabled] {
+background-color: #0044cc;
+}
+.datepicker td span.active:active, .datepicker td span.active.active {
+background-color: #003399 \9;
+}
+.datepicker td span.old {
+color: #999999;
+}
+.datepicker th.switch {
+width: 145px;
+}
+.datepicker thead tr:first-child th {
+cursor: pointer;
+}
+.datepicker thead tr:first-child th:hover {
+background: #eeeeee;
+}
+.input-append.date .add-on i, .input-prepend.date .add-on i {
+display: block;
+cursor: pointer;
+width: 16px;
+height: 16px;
+}
+
+
+/* Foundation v2.1.4 http://foundation.zurb.com */
+/* Artfully masterminded by ZURB  */
+
+/* -------------------------------------------------- 
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: Page Name 1
+:: Page Name 2
+*/
+
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+
+table th { font-weight: bold; }
+table td, table th { padding: 9px 10px; text-align: left; }
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	
+	table.responsive { margin-bottom: 0; }
+	
+	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: none; }
+	.pinned table { border-right: none; border-left: none; width: 100%; }
+	.pinned table th, .pinned table td { white-space: nowrap; }
+	.pinned td:last-child { border-bottom: 0; }
+	
+	div.table-wrapper { position: relative; margin-bottom: 20px; overflow: hidden; border-right: 1px solid #ccc; }
+	div.table-wrapper div.scrollable table { margin-left: 35%; }
+	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
+	
+	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
+	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
+	
+}
