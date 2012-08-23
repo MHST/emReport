@@ -15,10 +15,14 @@ $page_title = $module_info['custom_title'];
 $key_words = $module_info['keywords'];
 
 $cmnd = filter_text_input('cmnd', 'post', 0);
+if ($cmnd == 0 || !isValidCMND($cmnd)) die('Stop!!!');
+
 $submit = $nv_Request->get_int('submit','post',0);
 
 if( $submit == 0 ){
 	$xtpl = new XTemplate ("examine.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
+	$xtpl->assign('LANG', $lang_module);
+	$xtpl->assign('MAIN', NV_BASE_SITEURL . $module_name . "/");
 	$xtpl->assign('CMND', $cmnd);
 	$xtpl->assign('NV_CURRENTTIME', nv_date('d/m/Y', NV_CURRENTTIME));
 	$xtpl->assign('ACTION', NV_BASE_SITEURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=examine");
@@ -46,13 +50,8 @@ if( $submit == 0 ){
 	"', '" . $donthuoc . "', '" . $ghichu . "', '" . $dinhkem . "', '" . $nguoikham . "')";
 	
 	$db->sql_query($query);
-	$contents .= $lang_module['examine_success'];
-	$my_head .= "<script type='text/javascript'>
-        			function redirect(){
-            			window.location = '" . NV_BASE_SITEURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=view-" . $cmnd . "';" .
-        			"}
-        			setTimeout('redirect()', 1000);
-    			</script>";
+    Header("Location: " . NV_BASE_SITEURL . "index.php?" . NV_NAME_VARIABLE . "=" . $module_name . "&amp;" . NV_OP_VARIABLE . "=view-" . $cmnd);
+        
 }
 
 include ( NV_ROOTDIR . "/includes/header.php" );

@@ -2,11 +2,11 @@
 	<div class="container">
 		<div align="center">
 		<h1>{FULLNAME}</h1>
-	 	<p>Số CMND : {CMND}</p>
-	 	<p>Giới tính : {GENDER}</p>
-	 	<p>Ngày sinh : {BIRTHDAY}</p>
-	 	<p>Quê quán : {LOCATION}</p>
-	 	<h2>Hồ sơ bệnh án</h2>
+	 	<p>{LANG.cmnd} : {CMND}</p>
+	 	<p>{LANG.gender} : {GENDER}</p>
+	 	<p>{LANG.birthday} : {BIRTHDAY}</p>
+	 	<p>{LANG.location} : {LOCATION}</p>
+	 	<h2>{LANG.record}</h2>
 	 	</div>
 	 	
 		<!-- Content information: Report-recent -->
@@ -15,13 +15,13 @@
 				<table class="responsive table table-bordered" style="background-color:#f9f9f9;border:1px solid #ddd">
 					<thead>
 						<tr>
-							<th>Ngày khám</th>
-							<th>Khám bệnh</th>
-							<th>Chuẩn đoán</th>
-							<th>Kết luận</th>
-							<th>Đơn thuốc</th>
-							<th>Ghi chú</th>
-							<th>Đính kèm</th>
+							<th>{LANG.examine_date}</th>
+							<th>{LANG.examine}</th>
+							<th>{LANG.diagnose}</th>
+							<th>{LANG.conclude}</th>
+							<th>{LANG.prescription}</th>
+							<th>{LANG.note}</th>
+							<th>{LANG.attach}</th>
 							<th>Bác sỹ khám</th>
 						</tr>
 					</thead>
@@ -36,8 +36,8 @@
 		<div class="row">
 			<div class="span2 offset5" align="center">
 				<a data-toggle="modal" href="#mymodal" class="win-command">
-				<span class="win-commandimage win-commandring"><i class="icon-plus"></i></span>
-				<span class="win-label">Khám mới</span>
+				<span class="win-commandimage win-commandring" style="color:#da4f49"><i class="icon-plus icon-red"></i></span>
+				<span class="win-label" style="color:#da4f49">{LANG.new_examine}</span>
 				</a>
 			</div>
 		</div>
@@ -48,59 +48,57 @@
 				<div class="widget">
 						<div class="widget-header">
 							<i class="icon-ok-sign"></i>
-							<h3>Khám mới</h3>
-							<div class="widget-header-right">
-								<a href="#" style="margin-top:20px;" type="button" class="close" data-dismiss="modal">&times;</a>
+							<h3>{LANG.new_examine}</h3>
 						</div><!-- End widget-header-right -->
 						<div class="widget-content">
 							<div class="form-horizontal" id="register_patient">
 							<form action="{LINK}" method="post">
 								<div class="control-group">
-									<label class="control-label">Ngày khám</label>
+									<label class="control-label">{LANG.examine_date}</label>
 									<div class="controls">
 										<input class="span3" name="ngaykham" id="ngaykham" style="width: 90px;" maxlength="10" readonly="readonly" type="text" value="{NV_CURRENTTIME}"/>
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">Khám bệnh</label>
+									<label class="control-label">{LANG.examine}</label>
 									<div class="controls">
 										<input class="span3" type="text" name="khambenh">
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">Chẩn đoán</label>
+									<label class="control-label">{LANG.diagnose}</label>
 									<div class="controls">
 										<textarea class="textarea span3" rows="2" style="resize: none;" name="chandoan"></textarea>
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">Kết luận</label>
+									<label class="control-label">{LANG.conclude}</label>
 									<div class="controls">
 										<textarea class="textarea span3" rows="2" style="resize: none;" name="ketluan"></textarea>
 									</div>
 								</div>																		
 								<div class="control-group">
-									<label class="control-label">Đơn thuốc</label>
+									<label class="control-label">{LANG.prescription}</label>
 									<div class="controls">
 										<textarea class="textarea span3" rows="2" style="resize: none;" name="donthuoc"></textarea>
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">Ghi chú</label>
+									<label class="control-label">{LANG.note}</label>
 									<div class="controls">
 										<textarea class="textarea span3" rows="2" style="resize: none;" name="ghichu"></textarea>
 									</div>
 								</div>
 								<div class="control-group">
-									<label class="control-label">Đính kèm</label>
+									<label class="control-label">{LANG.attach}</label>
 									<div class="controls">
-										<input class="span3" type="text" name="dinhkem" value="Chức năng đang được phát triển" readonly="readonly">
+										<input class="span3" type="text" name="dinhkem" value="" readonly="readonly">
 									</div>
 								</div>
 								<div class="control-group" style="margin-top:20px">
 									<label class="control-label" for="input01"></label>
 									<div class="controls">
-										<button type="submit" class="btn btn-danger"><i class="icon-user" style="color:#fff"></i> Thêm khám mới</button>
+										<button type="submit" class="btn btn-danger"><i class="icon-user icon-white" style="color:#fff"></i> {LANG.new_examine}</button>
 									</div>
 								</div>		
 								<input type="hidden" value="{CMND}" name="cmnd">	

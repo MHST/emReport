@@ -84,7 +84,7 @@
 								</div>
 							</div>   
 							<div style="margin-top:20px;" align="center">
-								<button type="submit" name ="confirm" class="btn btn-danger"><i class="icon-user" style="color:#fff"></i>{LANG.member_add}</button>
+								<button type="submit" name ="confirm" class="btn btn-danger"><i class="icon-user icon-white" style="color:#fff"></i>{LANG.member_add}</button>
 							</div>		
 						</form>
 					</div>

@@ -154,6 +154,7 @@ $genders = array(
 $xtpl = new XTemplate("user_add.tpl", NV_ROOTDIR . "/themes/" . $global_config['module_theme'] .
     "/modules/". $module_name);
 $xtpl->assign('LANG', $lang_module);
+$xtpl->assign('MAIN', NV_BASE_SITEURL . $module_name . "/");
 $xtpl->assign('DATA', $_user);
 $xtpl->assign('FORM_ACTION', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=creuser");
 $xtpl->assign('NV_BASE_SITEURL', NV_BASE_SITEURL);

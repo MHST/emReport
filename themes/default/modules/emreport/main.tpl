@@ -1,11 +1,13 @@
 <!-- BEGIN: main -->
+<!-- BEGIN: wrap -->
 	<br/>
 	<div align="center">
-		<!-- BEGIN: button -->
-			<input class="btn" type="button" value="{VALUE}" onclick="window.location.href='{LINK}'">
-		<!-- END: button -->
+		<!-- BEGIN: user -->
+			<input class="btn" type="button" value="{LANG.create_emreport}" onclick="window.location.href='{LINK}'">
+		<!-- END: user -->
 		
-		<!-- BEGIN: search -->
+		<!-- BEGIN: doctor -->
+		<input class="btn" type="button" value="{LANG.create_emreport_admin}" onclick="window.location.href='{LINK}'">
 		<br/>
 		<br/>
         <form action="{ACTION}" method="post">
@@ -15,10 +17,11 @@
             <input type="hidden" value="1" name="submit">
         </form>
         <br/>
-        <!-- END: search -->
+        <!-- END: doctor -->
         
         <!-- BEGIN: error -->
         	<p style="color:red;">{ERROR} {CMND}</p>
         <!-- END: error -->
     </div>
+<!-- END: wrap -->
 <!-- END: main -->

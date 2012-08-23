@@ -8,19 +8,19 @@
 				</a>
           	</div>
           	<div class="pull-right">
-				<a href="{NV_BASE_SITEURL}" class="win-command">
-					<span class="win-commandimage win-commandring"><i class="icon-signout"></i></span>
-					<span class="win-label" >Đăng xuất</span>
+				<a href="{LOGOUT}" class="win-command">
+					<span class="win-commandimage win-commandring"><i class="icon-off icon-blue"></i></span>
+					<span class="win-label" >{LANG.logout}</span>
 				</a>
 			</div>
 			<div class="nav-collapse">
 				<a href="{NV_BASE_SITEURL}" class="win-command">
-						<span class="win-commandimage win-commandring" style="color:#da4f49"><i class="icon-home"></i></span>
-						<span class="win-label" style="color:#da4f49">Trang chủ</span>
+						<span class="win-commandimage win-commandring" style="color:#da4f49"><i class="icon-home icon-red"></i></span>
+						<span class="win-label" style="color:#da4f49">{LANG.home}</span>
 				</a>	
-				<a href="{NV_BASE_SITEURL}emreport/" class="win-command">
-					<span class="win-commandimage win-commandring"><i class="icon-search"></i></span>
-					<span class="win-label" >Tìm BN</span>
+				<a href="{MAIN}" class="win-command">
+					<span class="win-commandimage win-commandring"><i class="icon-search icon-blue"></i></span>
+					<span class="win-label" >{LANG.main}</span>
 				</a>
 			</div>
 		</div>

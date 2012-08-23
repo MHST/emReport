@@ -13,6 +13,8 @@ if ( isCreated($user_info['username']) ) die($lang_module['multi_error']);
 
 $submit = $nv_Request->get_int('submit','post',0);
 $xtpl = new XTemplate ("create.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
+$xtpl->assign('LOGOUT', NV_BASE_SITEURL . "index.php?" . NV_NAME_VARIABLE . "=users&" . NV_OP_VARIABLE . "=logout");
+$xtpl->assign('MAIN', NV_BASE_SITEURL . $module_name . "/");
 
 if( $submit != 0 ){
 	$cmnd = filter_text_input('cmnd', 'post', '');

@@ -10,7 +10,11 @@
         {THEME_CSS}
         {THEME_SITE_RSS}
         {THEME_SITE_JS}
-
+		<style type="text/css">
+			body{
+				font-family: verdana;
+			}
+		</style>
     </head>
     <body>
     <noscript>
