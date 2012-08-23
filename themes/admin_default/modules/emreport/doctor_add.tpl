@@ -76,8 +76,11 @@
         </tbody>
         <tbody>
             <tr>
-                <td colspan="2">
+                <td>
                     {LANG.ngaycapbang}
+                </td>
+                <td style="width:10px">
+                    (<span style="color:#FF0000">*</span>)
                 </td>
                 <td>
                     <input name="ngaycapbang" id="ngaycapbang" value="{DATA.ngaycapbang}" style="width: 90px;" maxlength="10" readonly="readonly" type="text" />

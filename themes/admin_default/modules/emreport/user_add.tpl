@@ -260,7 +260,7 @@
         <tbody>
             <tr>
                 <td colspan="3">
-                    <input type="submit" name="confirm" value="{LANG.member_add}" />
+                    <input type="submit" name="confirm" value="{LANG.user_add}" />
                 </td>
             </tr>
         </tbody>

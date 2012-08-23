@@ -17,7 +17,8 @@ $lang_translator['langtype'] = "lang_module";
 
 $lang_module['main'] = "Trang chính";
 $lang_module['detail'] = "Xem chi tiết";
-$lang_module['search'] = "Tìm kiếm";
+$lang_module['search'] = "Tra cứu bệnh án";
+$lang_module['enter_cmnd'] = "Nhập số CMND";
 $lang_module['loginalert'] = "Đăng nhập để bắt đầu sử dụng !";
 $lang_module['search_lable'] = "Tìm kiếm bệnh nhân";
 $lang_module['create_emreport'] = "Tạo sổ cá nhân";
@@ -51,6 +52,7 @@ $lang_module['date'] = "Ngày";
 $lang_module['month'] = "Tháng";
 $lang_module['year'] = "Năm";
 $lang_module['address'] = "Địa chỉ";
+$lang_module['location'] = "Quê quán";
 $lang_module['in_group'] = "Là thành viên của nhóm";
 $lang_module['addquestion'] = "Thêm câu hỏi bảo mật";
 $lang_module['savequestion'] = "Lưu câu hỏi bảo mật";
@@ -93,4 +95,18 @@ $lang_module['edit_error_full_name'] = "Tên bệnh nhân chưa được nhập"
 $lang_module['edit_error_birthday'] = "Ngày tháng năm sinh chưa được nhập";
 $lang_module['edit_error_location'] = "Địa chỉ chưa được nhập";
 $lang_module['error_doctor_func'] = "Chức năng này chỉ dành cho Bác Sĩ !!!";
+$lang_module['account_deny_name'] =
+    "Rất tiếc, tài khoản %s đã bị cấm sử dụng để đăng ký thành viên mới";
+$lang_module['create'] = "Tạo";
+$lang_module['cancel'] = "Hủy";
+$lang_module['record'] = "Hồ sơ bệnh án";
+$lang_module['examine_date'] = "Ngày khám";
+$lang_module['examine'] = "Khám bệnh";
+$lang_module['diagnose'] = "Chẩn đoán";
+$lang_module['conclude'] = "Kết luận";
+$lang_module['prescription'] = "Đơn thuốc";
+$lang_module['note'] = "";
+$lang_module['attach'] = "";
+$lang_module['doctor'] = "Bác sĩ";
+$lang_module['new_examine'] = "Khám mới";
 ?>

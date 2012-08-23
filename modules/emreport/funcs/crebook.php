@@ -16,9 +16,14 @@ $xtpl = new XTemplate ("create.tpl", NV_ROOTDIR . "/themes/" . $global_config ['
 
 if( $submit != 0 ){
 	$cmnd = filter_text_input('cmnd', 'post', '');
-	if (strcmp($cmnd, '') == 0 or !is_numeric($cmnd)){
-		$xtpl->assign('ERROR', $lang_module['cmnd_not_numeric']);
-	}else{
+	if ($cmnd == "")
+	{
+	    $xtpl->assign('ERROR', $lang_module['edit_error_cmnd_empty']);
+	    $xtpl->parse('main.error');
+	} elseif ($cmnd == 0 || !isValidCMND($cmnd)){
+		$xtpl->assign('ERROR', $lang_module['edit_error_cmnd']);
+		$xtpl->parse('main.error');
+	} else{
 		// Thêm vào CSDL
 		$query = "INSERT INTO `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` (`cmnd`, `ten`) VALUES ('". $cmnd . "', '" . $user_info['username'] . "')";
 		$db->sql_query($query);

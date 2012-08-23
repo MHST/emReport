@@ -16,38 +16,39 @@ if( ! defined('NV_IS_USER') ){
 	$link = NV_BASE_SITEURL . "index.php?" . NV_NAME_VARIABLE . "=users&" . NV_OP_VARIABLE . "=login&nv_redirect=" . nv_base64_encode( $redirect );	
 
 	$xtpl = new XTemplate ( "login.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
+	$xtpl->assign('LANG', $lang_module);
 	$xtpl->assign('LOGIN', $link);
 	$xtpl->parse('main');
 	$contents = $xtpl->text('main');
 }
 else{
-	$action = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=search";
 	$xtpl = new XTemplate ( "main.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
-	$xtpl->assign('ACTION', $action);
-	
+	$xtpl->assign('LANG', $lang_module);
 	if (!isDoctor($user_info['username'])) {
-		$query = "SELECT * FROM `" . NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `ten` = '" . $user_info['username'] . "'";
-		$result = $db->sql_query ($query);
-		$numrows = $db->sql_numrows($result);
-		
-		if($numrows == 0){
+		if (! isCreated($user_info['username'])){
 			$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=crebook";
 			$value = $lang_module['create_emreport'];
-		}else{
+		}elseif ($Lfunc != 'view'){
 			$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . getCMND($user_info['username']);
-			$value = $lang_module['view_emreport'];
+			Header("Location: " . $link);
+			exit();		
 		}	
 	}else{
 		$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=creuser";
 		$value = $lang_module['create_emreport_admin'];
+		$action = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=search";
+		$xtpl->assign('ACTION', $action);
+		$xtpl->parse('main.search');
 	}
-	
+		
 	$xtpl->assign('LINK', $link);
 	$xtpl->assign('VALUE', $value);
 	$xtpl->parse('main.button');
 	
 	// Search func
 	if ($Lfunc == 'search'){
+		if (! isDoctor($user_info['username'])) die('Stop!!!');
+		
 		$cmnd = filter_text_input('q', 'post', '');
 		
 		if ($cmnd == "")
@@ -72,6 +73,7 @@ else{
 			else{
 				$row = $db->sql_fetchrow($result);
 				Header("Location: " . NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . $row['cmnd']);
+				exit();
 			}
 		}
 	}
@@ -91,6 +93,7 @@ else{
 		$res = $db->sql_fetchrow($result);
 		
 		$xtpl = new XTemplate ( "view.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
+		$xtpl->assign('LANG', $lang_module);
 		$xtpl->assign('CMND', $row['cmnd']);
 		$xtpl->assign('FULLNAME', $res['full_name']);
 		$xtpl->assign('GENDER', $res['gender']);
