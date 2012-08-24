@@ -1,18 +1,60 @@
 <!-- BEGIN: main -->
 	<div class="container">
-		<div align="center">
-		<h1>{FULLNAME}</h1>
-	 	<p>{LANG.cmnd} : {CMND}</p>
-	 	<p>{LANG.gender} : {GENDER}</p>
-	 	<p>{LANG.birthday} : {BIRTHDAY}</p>
-	 	<p>{LANG.location} : {LOCATION}</p>
-	 	<h2>{LANG.record}</h2>
-	 	</div>
+		<div class="row">
+		<div class="span6 offset3" style="min-width:32px;">
+			<div class="widget">
+				<div class="widget-header">
+					<i class="icon-user icon-red"></i>
+					<h3>Thông tin bệnh nhân</h3>
+				</div>
+				<div class="widget-content">
+					<div class="form-horizontal" id="register_patient">
+						<div class="control-group">
+							<label class="control-label " style="color:#999">{LANG.name}</label>
+							<div class="controls">
+								<span class="inline-text">{FULLNAME}</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"  style="color:#999">{LANG.cmnd}</label>
+							<div class="controls">
+								<span class="inline-text">{CMND}</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"  style="color:#999">{LANG.birthday}</label>
+							<div class="controls">
+								<span class="inline-text">{BIRTHDAY}</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"  style="color:#999">{LANG.location}</label>
+							<div class="controls">
+								<span class="inline-text">{LOCATION}</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"  style="color:#999">{LANG.email}</label>
+							<div class="controls">
+								<span class="inline-text">{EMAIL}</span>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label"  style="color:#999">{LANG.gender}</label>
+							<div class="controls">
+								<span class="inline-text">{GENDER}</span>
+							</div>
+						</div>																
+					</div><!-- Contact form-->
+				</div>
+			</div><!-- Eng widget-->
+		</div><!-- End span6 -->
+		<div>	
 	 	
 		<!-- Content information: Report-recent -->
 		<div class="row">		
 			<div class="span12">
-				<table class="responsive table table-bordered" style="background-color:#f9f9f9;border:1px solid #ddd">
+				<table class="table table-bordered">
 					<thead>
 						<tr>
 							<th>{LANG.examine_date}</th>

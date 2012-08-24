@@ -307,6 +307,7 @@ hyphens:auto;
 		font-size: 14px;
 		color: #5A5A5A;
 		line-height: 22px;
+		font-weight: normal;
 	}
 	
 		.widget-header [class^="icon-"], .widget-header [class*=" icon-"] {
