@@ -34,4 +34,9 @@ function groupList()
     return $groups;
 }
 
+function isValidCMND($number) {
+    if (strlen($number) != 9) return false;
+    return true;
+}
+
 ?>

@@ -61,7 +61,9 @@ if ($nv_Request->isset_request('confirm', 'post'))
     } elseif (empty($_user['cmnd']))
     {
         $error = $lang_module['edit_error_cmnd_empty'];
-    } elseif ($db->sql_numrows($db->sql_query("SELECT * FROM `" .
+    } elseif ($_user['cmnd'] == 0 || !isValidCMND($_user['cmnd'])){
+		$error = $lang_module['edit_error_cmnd'];
+	} elseif ($db->sql_numrows($db->sql_query("SELECT * FROM `" .
     NV_PREFIXLANG . "_" . $module_data . "_benhnhan` WHERE `cmnd`=" . $db->dbescape(($_user['cmnd'])))) !=
         0)
     {
