@@ -6,27 +6,7 @@
 	Version:	1.0
 	Author :	Huu Loc
 
-
-
-[Table of contents]
-
-	1. Shortcuts
-	2. Stats
-	3. Task List
-	4. News Item
-
 -------------------------------------------------------------------*/
-
-
-
-
-/*--------------  Global initial-----------*/
-
-body {
-	padding-top:90px;
-}
-
-
 
 
 
@@ -327,6 +307,7 @@ hyphens:auto;
 		font-size: 14px;
 		color: #5A5A5A;
 		line-height: 22px;
+		font-weight: normal;
 	}
 	
 		.widget-header [class^="icon-"], .widget-header [class*=" icon-"] {
@@ -604,21 +585,10 @@ height: 16px;
 }
 
 
-/* Foundation v2.1.4 http://foundation.zurb.com */
+
+
+/* Responsive-table */
 /* Artfully masterminded by ZURB  */
-
-/* -------------------------------------------------- 
-   Table of Contents
------------------------------------------------------
-:: Shared Styles
-:: Page Name 1
-:: Page Name 2
-*/
-
-
-/* -----------------------------------------
-   Shared Styles
------------------------------------------ */
 
 table th { font-weight: bold; }
 table td, table th { padding: 9px 10px; text-align: left; }
@@ -628,7 +598,7 @@ table td, table th { padding: 9px 10px; text-align: left; }
 	
 	table.responsive { margin-bottom: 0; }
 	
-	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: none; }
+	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
 	.pinned table { border-right: none; border-left: none; width: 100%; }
 	.pinned table th, .pinned table td { white-space: nowrap; }
 	.pinned td:last-child { border-bottom: 0; }
@@ -641,3 +611,4 @@ table td, table th { padding: 9px 10px; text-align: left; }
 	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
 	
 }
+
