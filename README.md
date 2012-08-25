@@ -1,4 +1,4 @@
-## Module emReport_v1 cho NukeViet : __25/8/2012__ ![Ok](http://emreport.vinades.net/themes/theme_emreport_nuke/images/doctor-red.png)
+## Module emReport_v1 cho NukeViet : 25/8/2012 ![Ok](http://emreport.vinades.net/themes/theme_emreport_nuke/images/doctor-red.png)
 
 #### Hướng dẫn cài đặt:
  1. Cài đặt theme cho module[nâng cao/không bắt buộc]: [theme_emreport_nuke.zip](https://github.com/downloads/MHST/emReport/theme_emreport_nuke.zip)
