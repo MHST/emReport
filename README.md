@@ -9,8 +9,8 @@
  1. Bệnh nhân: Tự tạo và xem thông tin tài khoản, bệnh án.
  2. Bác sỹ:   
      2.1 Tài khoản bác sỹ do người quản trị tạo.   
-     2.2 Tạo tài khoản cho bệnh nhân.
-     2.3 Tìm kiếm bệnh nhân
+     2.2 Tạo tài khoản cho bệnh nhân.  
+     2.3 Tìm kiếm bệnh nhân   
      2.4 Tạo và xem thông tin bệnh án.
 
 #### Tài khoản demo: http://emreport.vinades.net/vi/emreport/
