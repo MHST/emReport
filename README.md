@@ -1,10 +1,9 @@
-
 ## Module emReport_v1 cho NukeViet : __25/8/2012__ ![Ok](http://emreport.vinades.net/themes/theme_emreport_nuke/images/doctor-red.png)
 
 #### Hướng dẫn cài đặt:
  1. Cài đặt theme cho module[nâng cao/không bắt buộc]: [theme_emreport_nuke.zip](https://github.com/downloads/MHST/emReport/theme_emreport_nuke.zip)
  2. Cài đặt module: [emReport-v1.zip](https://github.com/downloads/MHST/emReport/emReport-v1.zip).   
- 3. Cài đặt module với theme: theme_emreport_nuke **Bỏ qua nếu không cài theme nâng cao**
+ 3. Cài đặt module với theme: theme_emreport_nuke  [**Bỏ qua nếu không cài theme nâng cao**]
 
 #### Các chức năng chính:
  1. Bệnh nhân: Tự tạo và xem thông tin tài khoản, bệnh án.
@@ -14,7 +13,7 @@
      2.3 Tìm kiếm bệnh nhân
      2.4 Tạo và xem thông tin bệnh án.
 
-#### Tài khoản demo:
+#### Tài khoản demo: http://emreport.vinades.net/vi/emreport/
  1. Bệnh nhân:
     * username: **benhnhandemo**
     * password: **123456**
