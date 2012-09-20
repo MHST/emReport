@@ -96,4 +96,24 @@ $lang_module['edit_error_answer'] =
     "Câu trả lời cho câu hỏi bảo mật không được để trống";
 $lang_module['account_deny_name'] =
     "Rất tiếc, tài khoản %s đã bị cấm sử dụng để đăng ký thành viên mới";
+$lang_module['search_type'] = "Tìm kiếm thành viên theo";
+$lang_module['search_id'] = "ID thành viên";
+$lang_module['search_account'] = "Tài khoản thành viên";
+$lang_module['search_name'] = "Tên thành viên";
+$lang_module['search_mail'] = "Email thành viên";
+$lang_module['search_page_title'] = "Kết quả tìm kiếm";
+$lang_module['search_note'] =
+    "Từ khóa tìm kiếm không lớn hơn 64 ký tự, không dùng các mã html";
+$lang_module['level0'] = "Thành viên";
+$lang_module['level1'] = "Quản trị tối cao";
+$lang_module['level2'] = "Quản trị chung";
+$lang_module['level3'] = "Quản trị bộ phận";
+$lang_module['userid'] = "ID";
+$lang_module['checkall'] = "Chọn tất cả";
+$lang_module['uncheckall'] = "Bỏ chọn tất cả";
+$lang_module['delete'] = "Xóa";
+$lang_module['delete_success'] = "Xóa thành công !";
+$lang_module['active_success'] = "Thực hiện thành công !";
+$lang_module['memberlist_edit'] = "Sửa";
+$lang_module['location'] = "Địa chỉ";
 ?>

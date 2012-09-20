@@ -16,6 +16,9 @@
 				<td>{LANG.note}</td>
 				<td>{LANG.attach}</td>
 				<td>{LANG.doctor}</td>
+				<!-- BEGIN: edit -->
+				<td></td>
+				<!-- END: edit -->
 			</tr>
 		 	{LIST}
 		</table>
@@ -26,4 +29,22 @@
 			</form>
 		<!-- END: examine -->
 	</div>
+	<form name="forwardForm" action="{ACTION}" method="post">
+		<input id="cmndDoctor" name="cmndDoctor" type="hidden">
+	</form>
+	<form name="forwardEditForm" action="{EDIT_ACTION}" method="post">
+		<input id="id" name="id" type="hidden">
+	</form>
+	
+<script type="text/javascript">
+	function forward2Form(cmnd){
+		document.forwardForm.cmndDoctor.value = cmnd;
+		document.forwardForm.submit();
+	}
+	
+	function forward2EditForm(id){
+		document.forwardEditForm.id.value = id;
+		document.forwardEditForm.submit();
+	}
+</script>
 <!-- END: main -->

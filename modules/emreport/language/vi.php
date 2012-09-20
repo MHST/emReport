@@ -113,4 +113,13 @@ $lang_module['new_examine'] = "Khám mới";
 $lang_module['login'] = "Đăng nhập";
 $lang_module['home'] = "Trang chủ";
 $lang_module['logout'] = "Đăng xuất";
+$lang_module['doctor_info'] = "Thông tin bác sĩ";
+$lang_module['khoa'] = "Khoa";
+$lang_module['trinhdo'] = "Trình độ";
+$lang_module['ngaycapbang'] = "Ngày cấp bằng";
+$lang_module['mabenhvien'] = "Mã bệnh viện";
+$lang_module['edit'] = "Sửa";
+$lang_module['examine_doctor'] = "Bác sĩ khám";
+$lang_module['edit_report'] = "Sửa bệnh án";
+$lang_module['update'] = "Cập nhật";
 ?>

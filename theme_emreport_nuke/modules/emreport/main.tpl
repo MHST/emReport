@@ -20,7 +20,7 @@
 								<button style="margin-top:20px" type="submit" class="btn">
 					        		<i class="icon-search"></i> {LANG.search}
 								</button>
-								<a href="{LINK}" style="margin-top:20px" class="btn btn-primary"><i class="icon-ok icon-white"></i> {LANG.create_emreport_admin}
+								<a href="{LINK}" style="margin-top:20px" class="btn btn-primary"><i class="icon-ok icon-white"></i>{LANG.create_emreport_admin}
 								</a>
 							</form>
 						<!-- END: doctor -->

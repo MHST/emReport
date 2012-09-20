@@ -13,7 +13,6 @@ $sql_drop_module = array();
 
 $sql_drop_module[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_benhnhan`";
 $sql_drop_module[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_bacsi`";
-$sql_drop_module[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_benhan`";
 $sql_drop_module[] = "DROP TABLE IF EXISTS `" . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_kham`";
 
 $sql_create_module = $sql_drop_module;
@@ -45,13 +44,6 @@ $sql_create_module[] = "CREATE TABLE `" . $db_config['prefix'] . "_" . $lang . "
    `ghichu` text,
    `dinhkem` varchar(255) NOT NULL,
    `nguoikham` varchar(40) NOT NULL,
-   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8";
-
-$sql_create_module[] = "CREATE TABLE `" . $db_config['prefix'] . "_" . $lang . "_" . $module_data . "_benhan` (
-   `id` int(11) NOT NULL AUTO_INCREMENT,
-   `cmnd` int(20) NOT NULL,
-   `tenbenh` varchar(255) NOT NULL,
    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8";
 

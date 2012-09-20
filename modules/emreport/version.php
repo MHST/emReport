@@ -11,7 +11,7 @@ if ( ! defined( 'NV_ADMIN' ) or ! defined( 'NV_MAINFILE' )) die( 'Stop!!!' );
  
 $module_version = array( 
 	"name" => "Sổ y bạ", // Tieu de module
-	"modfuncs" => "main,crebook,examine,creuser",
+	"modfuncs" => "main,crebook,examine,creuser,edit,doctor_info",
 	"is_sysmod" => 0,
 	"virtual" => 1,
 	"version" => "3.4.01",

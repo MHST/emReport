@@ -39,4 +39,10 @@ function isValidCMND($number) {
     return true;
 }
 
+function gen($gender) {
+	global $lang_module;
+	if ($gender == 'M') return $lang_module['male'];
+	return $lang_module['female'];
+}
+
 ?>

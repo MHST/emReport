@@ -6,6 +6,7 @@
 
         <link rel="icon" href="{NV_BASE_SITEURL}favicon.ico" type="image/vnd.microsoft.icon" />
         <link rel="stylesheet" type="text/css" href="{NV_BASE_SITEURL}themes/{TEMPLATE}/css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="{NV_BASE_SITEURL}themes/{TEMPLATE}/css/bootstrap-responsive.css">
         {THEME_CSS}
         {THEME_SITE_RSS}
         {THEME_SITE_JS}

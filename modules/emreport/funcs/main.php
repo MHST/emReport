@@ -16,9 +16,47 @@ if( ! defined('NV_IS_USER') ){
 	$link = NV_BASE_SITEURL . "index.php?" . NV_NAME_VARIABLE . "=users&" . NV_OP_VARIABLE . "=login&nv_redirect=" . nv_base64_encode( $redirect );	
 
 	$xtpl = new XTemplate ( "login.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
+	$my_head .= "<script type=\"text/javascript\" src=\"" . NV_BASE_SITEURL .
+        "js/jquery/jquery.validate.js\"></script>\n";
+    $my_head .= "<script type=\"text/javascript\">\n";
+    $my_head .= "$(document).ready(function(){\n            $('#loginForm').validate();\n          });";
+    $my_head .= "  </script>\n";
 	$xtpl->assign('LANG', $lang_module);
 	$xtpl->assign('LOGIN', $link);
 	$xtpl->assign('IMAGE', NV_BASE_SITEURL . "themes/" . $global_config['module_theme'] . "/images/doctor-red.png");
+	$xtpl->assign('LOSTPASS', "" . NV_BASE_SITEURL . "index.php?" .
+        NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=users&" . NV_OP_VARIABLE . "=lostpass");
+    $xtpl->assign('REGISTER', "" . NV_BASE_SITEURL . "index.php?" .
+        NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=users&" . NV_OP_VARIABLE . "=register");
+
+    $array_login = array(
+                "nv_login" => '',
+                "nv_password" => '',);
+    
+    $xtpl->assign('DATA', $array_login);
+    
+	if (defined('NV_OPENID_ALLOWED'))
+    {
+        $xtpl->assign('OPENID_IMG_SRC', NV_BASE_SITEURL . "themes/" . $module_info['template'] .
+            "/images/openid.gif");
+        $xtpl->assign('OPENID_IMG_WIDTH', 150);
+        $xtpl->assign('OPENID_IMG_HEIGHT', 60);
+        $assigns = array();
+        foreach ($openid_servers as $server => $value)
+        {
+            $assigns['href'] = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" .
+                NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=users&" .
+                NV_OP_VARIABLE . "=login&amp;server=" . $server;
+            $assigns['title'] = ucfirst($server);
+            $assigns['img_src'] = NV_BASE_SITEURL . "themes/" . $module_info['template'] .
+                "/images/" . $server . ".gif";
+            $assigns['img_width'] = $assigns['img_height'] = 24;
+            $xtpl->assign('OPENID', $assigns);
+            $xtpl->parse('main.openid.server');
+        }
+        $xtpl->parse('main.openid');
+    }
+    
 	$xtpl->parse('main');
 	$contents = $xtpl->text('main');
 }
@@ -70,7 +108,7 @@ else{
 			$parse_wrap = 1;
 		}elseif ($Lfunc != 'view'){
 			$link = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=view-" . getCMND($user_info['username']);
-			Header("Location: " . $link);
+			Header("Location: " . nv_url_rewrite($link, true));
 			exit();		
 		}	
 	}else{
@@ -98,19 +136,23 @@ else{
 		$result = $db->sql_query ($query);
 		$res = $db->sql_fetchrow($result);
 		
+		$action = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=doctor_info";
+		$edit_action = NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=edit";
+		
 		$xtpl = new XTemplate ( "view.tpl", NV_ROOTDIR . "/themes/" . $global_config ['module_theme'] . "/modules/" . $module_name);
 		$xtpl->assign('LANG', $lang_module);
+		$xtpl->assign('ACTION', $action);
+		$xtpl->assign('EDIT_ACTION', $edit_action);
 		$xtpl->assign('CMND', $row['cmnd']);
 		$xtpl->assign('FULLNAME', $res['full_name']);
-		$xtpl->assign('GENDER', $res['gender']);
+		$xtpl->assign('GENDER', gen($res['gender']));
 		$xtpl->assign('BIRTHDAY', nv_date('d/m/Y', $res['birthday']));
 		$xtpl->assign('LOCATION', $res['location']);
 		if ( isDoctor($user_info['username'])){
 			$xtpl->assign('LINK', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=" . $module_name . "&" . NV_OP_VARIABLE . "=examine");	
 			$xtpl->assign('NV_CURRENTTIME', nv_date('d/m/Y', NV_CURRENTTIME));
 			$xtpl->parse('main.examine');
-			$my_footer .= "<script type=\"text/javascript\" src=\"" . NV_BASE_SITEURL .
-    		"themes/" . $global_config ['module_theme'] . "/js/bootstrap.min.js\"></script>\n";
+			$xtpl->parse('main.edit');
 		}
 		// list report
 		$list = '';
@@ -119,16 +161,32 @@ else{
 		$result = $db->sql_query ($query);
 		
 		while ($res = $db->sql_fetchrow($result)) {
+			// get Doctor's cmnd
+			$cmndDoctor = getDoctorCMND($res['nguoikham']);
+			
+			// get Doctor's full name
+			$query = "SELECT * FROM `" . NV_USERS_GLOBALTABLE . "` WHERE `username` = '" . $res['nguoikham'] . "'";
+			$resDoctor = $db->sql_query ($query);
+			$rowDoctor = $db->sql_fetchrow($resDoctor);
+			$nameDoctor = $rowDoctor['full_name'];
+			
+			if ($res['dinhkem'] == '') $file = "<td></td>";
+			else $file = "<td><a href='" . NV_BASE_SITEURL . $res['dinhkem'] . "'>Download</a></td>";
+			$forward_form = 'javascript:forward2Form(' . $cmndDoctor .')';
+			$edit_form = 'javascript:forward2EditForm(' . $res['id'] .')';
 			$list .= "<tr>
 						<td>" . nv_date('d/m/Y', $res['ngaykham']) . "</td>
 						<td>" . $res['khambenh'] . "</td>
 						<td>" . Markdown(nv_unhtmlspecialchars($res['chandoan'])) . "</td>
 						<td>" . Markdown(nv_unhtmlspecialchars($res['ketluan'])) . "</td>
 						<td>" . Markdown(nv_unhtmlspecialchars($res['donthuoc'])) . "</td>
-						<td>" . Markdown(nv_unhtmlspecialchars($res['ghichu'])) . "</td>
-						<td>" . $res['dinhkem'] . "</td>
-						<td>" . $res['nguoikham'] . "</td>
-					</tr>";
+						<td>" . Markdown(nv_unhtmlspecialchars($res['ghichu'])) . "</td>"
+						. $file .
+						"<td><a href='". $forward_form ."'>" . $nameDoctor . "</a></td>";
+			if ( isDoctor($user_info['username'])){
+				$list .= "<td><a href='" . $edit_form . "'>" . $lang_module['edit'] . "</a></td>";
+			}
+			$list .=	"</tr>";
 		}
 		$xtpl->assign('LIST', $list);
 		$xtpl->parse('main');
