@@ -11,7 +11,7 @@
 			</div> <!-- /widget-header -->
 		
 			<div class="widget-content" style="background-color:white">
-				<div id="demo" class="span6 offset3 collapse out">
+				<div id="demo" class="span6 offset3 collapse out" style="margin:10px 0px">
 					<table class="table table-striped table-bordered" style="background-color:#fff; border:1px solid #ccc;">
 						<thead>
 							<tr>
